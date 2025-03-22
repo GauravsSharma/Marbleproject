@@ -24,9 +24,9 @@ export const AppwriteContextProvider = ({ children }) => {
     };
   
     // Get Download URL
-    const getDownloadUrl = async (fileId) => {
+    const getDownloadUrl = (fileId) => {
       try {
-        const result = storage.getFileDownload(
+        const result =  storage.getFilePreview(
           import.meta.env.VITE_BUCKET_ID, 
           fileId
         );
@@ -97,6 +97,20 @@ export const AppwriteContextProvider = ({ children }) => {
       }
     };
   
+    const createDocument = async (data) => {
+      try {
+        const result = await databases.createDocument(
+          import.meta.env.VITE_DATABASE_ID,
+          import.meta.env.VITE_COLLECTION_ID,
+          ID.unique(),
+          data
+        );
+        console.log("Document added:", result);
+        return result;
+      } catch (error) {
+        console.log("Error in adding document", error);
+      }
+    };
     return (
       <Appwrite.Provider
         value={{
@@ -106,6 +120,7 @@ export const AppwriteContextProvider = ({ children }) => {
           getDocumentById,
           updateDocument,
           deleteDocument,
+          createDocument
         }}
       >
         {children}

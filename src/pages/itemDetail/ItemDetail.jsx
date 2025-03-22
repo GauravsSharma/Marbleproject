@@ -8,6 +8,7 @@ import ProductReview from './productReview/ProductReview';
 import { FaRegHeart } from "react-icons/fa";
 import ProductCarousel from './productDetailViewCarousel/ProductCarousel';
 import NewsLetter from '../../components/newsLetter/NewsLetter';
+import { useAppwrite } from '../../appwrite/AppwriteContext';
 const ItemDetail = ({ setNav, setFoot }) => {
     const [carts, setCarts] = useState([]);
     const ProductReviewMemoized = React.memo(ProductReview);
@@ -15,8 +16,8 @@ const ItemDetail = ({ setNav, setFoot }) => {
     const [obj, setObj] = useState(null);
     const [mainSrc, setMainSrc] = useState();
     const [data, setData] = useState();
-    const [imgArr, setImgArr] = useState([]);
-    const firebase = useFirebase();
+    const [imgArr, setImgArr] = useState();
+    const firebase = useAppwrite();
     const { id } = useParams();
     const [qty, setQty] = useState(1);
     const [size,setSize] = useState("small")
@@ -31,13 +32,11 @@ const ItemDetail = ({ setNav, setFoot }) => {
         const fetchData = async () => {
             setLoading(true)
             try {
-                const res = await firebase.getDocument(id);
-                const data = res.data();
-                console.log(data);
-                setObj(data);
-                setImgArr(data?.image || []);
-                setMainSrc(data?.image[0]);
-                // console.log(imgArr);
+                const res = await firebase.getDocumentById(id);
+                console.log("Single",res);
+               
+                setObj(res);
+                setImgArr(res?.thumbnail || []);
                 setLoading(false);
                 return data;
             } catch (error) {
@@ -49,7 +48,7 @@ const ItemDetail = ({ setNav, setFoot }) => {
             try {
                 const res = await firebase.getDocuments(obj.category);
                 const data = res.docs;
-                console.log(data);
+                // console.log(data);
                 setData(data);
             } catch (error) {
                 console.error("Error fetching data:", error);
@@ -115,20 +114,20 @@ const ItemDetail = ({ setNav, setFoot }) => {
                         <section id="prodetails" className=" p-5 sm:px-10 flex flex-col sm:flex-row w-full  items-center h-[70%]">
                             <div className='h-full w-full sm:w-[35%] flex justify-center items-center sm:gap-2 flex-col-reverse sm:flex-row '>
                                 <div className='flex gap-1 justify-center items-center flex-row sm:flex-col w-full sm:w-[20%] mt-1'>
-                                    {
+                                    {/* {
                                         imgArr?.length > 0 && imgArr.map((img, index) => {
                                             return (<img key={index} src={img} className='hover:scale-105 duration-500 sm:w-full w-[25%]' onClick={() => handleImgChange(img)} />)
                                         })
-                                    }
+                                    } */}
                                 </div>
-                                <img src={mainSrc} className='w-full sm:w-[80%] h-full cursor-pointer' onClick={()=>setProductCarouselShow(true)}/>
+                                <img src={imgArr} className='w-full sm:w-[80%] h-full cursor-pointer' onClick={()=>setProductCarouselShow(true)}/>
                             </div>
                             <div className=" w-full sm:w-[65%] mt-7 sm:px-12 pt-30">
                                 <h6 className="text-xl font-semibold my-2">Home / {obj?.category}</h6>
-                                <h4 className="sm:text-3xl text-2xl my-2">{obj?.name}</h4>
+                                <h4 className="sm:text-3xl text-2xl my-2">{obj?.title}</h4>
                                 <div className='flex justify-start items-center'>
-                                    <h2 className="text-2xl my-2 font-semibold">₹{obj?.DPrice}</h2>
-                                    <s className='mr-1 text-slate-400 mx-2 text-xl'>₹{obj?.OPrice}</s>
+                                    <h2 className="text-2xl my-2 font-semibold">₹{obj?.price}</h2>
+                                    <s className='mr-1 text-slate-400 mx-2 text-xl'>₹{3993}</s>
                                     <p className="font-bold my-1 text-green-600 text-xl">({Math.round(discountPercentage)}% off)</p>
                                 </div>
                                 <select className="block py-2 px-4 mb-4 bg-white border border-gray-300 focus:outline-none" onClick={(e)=>setSize(e.target.value)}>
@@ -161,7 +160,7 @@ const ItemDetail = ({ setNav, setFoot }) => {
                                 </div>
                                 <h4 className="text-2xl py-4">Product details</h4>
                                 <span className="leading-5 w-full">{
-                                    obj?.dis ? <p>{obj?.dis}</p> : <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo accusantium facilis ipsa ut laudantium eligendi omnis dolor dicta. Laborum illum eaque, nihil eius error vero repellat possimus, voluptatibus porro corporis dolor commodi et impedit! Lorem ipsum dolor sit amet consectetur, adipisicing Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, asperiores?</p>
+                                    obj?.dis ? <p>{obj?.dis}</p> : <p>{obj.description}</p>
                                 }</span>
                             </div>
                         </section>
@@ -169,7 +168,7 @@ const ItemDetail = ({ setNav, setFoot }) => {
                         <CardSection data={data} heading={"Similar Products"} subHead={"You may also like"} />
                         <Toaster />
                     </div>
-                    {productCarouselShow&&<ProductCarousel images={imgArr} setProductCarouselShow={setProductCarouselShow} productCarouselShow={productCarouselShow} />}
+                    {productCarouselShow&&<ProductCarousel images={[imgArr]} setProductCarouselShow={setProductCarouselShow} productCarouselShow={productCarouselShow} />}
                 </>
             }
             <NewsLetter/>

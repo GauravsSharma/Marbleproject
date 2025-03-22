@@ -7,18 +7,18 @@ import { firestore, useFirebase } from '../../firebase/FirebaseContext';
 import { addDoc, collection } from 'firebase/firestore';
 import NewsLetter from '../../components/newsLetter/NewsLetter';
 import { Link } from 'react-router-dom';
-
+import {useAppwrite} from  "../../appwrite/AppwriteContext"
 const Home = ({ setFoot, setNav }) => {
   const [data1, setData1] = useState(null);
   const [data2, setData2] = useState(null);
   const [loading, setLoading] = useState(true)
-  const firebase = useFirebase()
-  const fetchdata = (category, setFuction) => {
-    firebase.getDocuments(category)
+  const firebase = useAppwrite()
+  const fetchdata = (x,setFuction) => {
+    firebase.getAllDocuments()
       .then(res => {
         // Handle the JSON data
-        setFuction(res.docs)
-        console.log(res.docs);
+        setFuction(res.documents)
+        console.log(res.documents);
         setLoading(false);
         // console.log(data);
       })
@@ -114,7 +114,7 @@ const Home = ({ setFoot, setNav }) => {
             <img className='w-full sm:h-[500px] h-[220px] object-cover' src="https://cdn-media.powerlook.in/mycustomfolder/discover-the-magic.jpg" alt="" />
 
           </div>
-          <CardSection data={data2} heading={"Season's Best Collections"} subHead={"Discover the latest trends in streetwear"} />
+          {/* <CardSeclotion data={data2} heading={"Season's Best Collections"} subHead={"Discover the latest trends in streetwear"} /> */}
         </>
       }
       <NewsLetter />

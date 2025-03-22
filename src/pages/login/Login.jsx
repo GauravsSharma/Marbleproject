@@ -5,7 +5,7 @@ import * as Yup from "yup";
 import { useAppwrite } from "../../appwrite/AppwriteContext";
 
 const AddProductForm = () => {
-  const { createDocument, uploadImage } = useAppwrite();
+  const { createDocument, uploadImage,getDownloadUrl } = useAppwrite();
   const [imagePreview, setImagePreview] = useState(null);
   const [imageFile, setImageFile] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -18,26 +18,34 @@ const AddProductForm = () => {
     },
     validationSchema: Yup.object({
       title: Yup.string().required("Title is required"),
-      price: Yup.number().positive("Price must be positive").required("Price is required"),
+      price: Yup.string("Price must be positive").required("Price is required"),
       description: Yup.string().required("Description is required"),
     }),
     onSubmit: async (values) => {
       setLoading(true);
       try {
-        let uploadedImage = null;
+        let uploadedImageId = null;
 
         // Upload image if selected
         if (imageFile) {
           const response = await uploadImage(imageFile);
-          uploadedImage = response ? response.$id : null;
+          console.log("res---->",response);
+          
+          uploadedImageId = response ? response.$id : null;
         }
-
+        let url = "";
+        if(uploadedImageId){
+           url =  getDownloadUrl(uploadedImageId)
+          console.log(url);
+        }
+        console.log("type---->",typeof values.price);
+        
         // Save product data to Appwrite
         const productData = {
           title: values.title,
-          price: values.price,
+          price: String(values.price),
           description: values.description,
-          image: uploadedImage,
+          thumbnail: url,
         };
 
         await createDocument(productData); // Correct function for adding new products
@@ -85,7 +93,7 @@ const AddProductForm = () => {
         <div>
           <label className="block text-gray-700">Price ($)</label>
           <input
-            type="number"
+            type="text"
             name="price"
             value={formik.values.price}
             onChange={formik.handleChange}
