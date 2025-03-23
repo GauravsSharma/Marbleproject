@@ -31,45 +31,47 @@ const Contact = ({ setFoot, setNav }) => {
             
             </div>
             </div>: <>
-            <section className="flex justify-between flex-col sm:flex-row items-center p-5 sm:p-10">
+            <section className="flex justify-between h-screen
+             flex-col sm:flex-row items-start  py-20 sm:py-20 sm:px-20">
                 <div className="sm:w-[40%]">
                     <span className='text-base'>GET IN TOUCH</span>
-                    <h2 className='text-3xl py-5'>Visit one of our agency Locations today and contact us.</h2>
-                    <h3 className='text-base pb-4'>Head Office</h3>
+                    <h2 className='text-3xl py-5'>Here's the location of our factory by which you reach out to us and discuss more about it.</h2>
+                    <h3 className='text-base pb-4'>Marble Inlay Art Studio All India</h3>
                     <div>
                         <li className='py-3 flex list-none  items-center'>
                             <FaMap />
-                            <p className='ml-2 text-base'>56 Glass Gold Road near St.Road NewYork</p>
+                            <p className='ml-2 text-base'>21/62/23 Telipara, Tajganj, Agra, Uttar Pradesh 282001</p>
                         </li>
                         <li className='py-3 flex list-none  items-center'>
                             <MdEmail />
-                            <p className='ml-2 text-base'>ContactUs@gmail.com</p>
+                            <p className='ml-2 text-base'>akhan656500@gmail.com</p>
                         </li>
                         <li className='py-3 flex list-none  items-center'>
                             <FaPhoneAlt />
-                            <p className='ml-2 text-base'>5354643423</p>
+                            <p className='ml-2 text-base'>6398647656</p>
                         </li>
                         <li className='py-3 flex list-none  items-center '>
                             <FaClock />
-                            <p className='ml-2 text-base'>Monday to Saturday: 9:00 to 16:00</p>
+                            <p className='ml-2 text-base'>Monday to Sunday: 9 am to 9 pm</p>
                         </li>
 
                     </div>
                 </div>
                 <div className="map w-full h-52 sm:h-96 sm:w-[55%]">
-                    <iframe
-                        className="h-full w-full"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d158083.72648931606!2d-1.542925238614341!3d51.75025883356493!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48713380adc41faf%3A0xc820dba8cb547402!2sOxford%2C%20UK!5e0!3m2!1sen!2sin!4v1682152127479!5m2!1sen!2sin"
-                        width="600"
-                        height="450"
-                        style={{ border: 0 }}
-                        allowFullScreen=""
-                        loading="lazy"
-                        referrerPolicy="no-referrer-when-downgrade"
-                    ></iframe>
-                </div>
+    <iframe
+        className="h-full w-full"
+        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3456.646836126131!2d78.0452938!3d27.1632366!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1234567890"
+        width="600"
+        height="450"
+        style={{ border: 0 }}
+        allowFullScreen=""
+        loading="lazy"
+        referrerPolicy="no-referrer-when-downgrade"
+    ></iframe>
+</div>
+
             </section>
-            <section id="form-details" className='flex justify-between p-5 m-2 items-center flex-col sm:flex-row sm:m-16 sm:p-5 border border-slate-300 rounded-xl border-1'>
+            {/* <section id="form-details" className='flex justify-between p-5 m-2 items-center flex-col sm:flex-row sm:m-16 sm:p-5 border border-slate-300 rounded-xl border-1'>
                 <form action="" className='flex gap-2 w-full sm:w-[65%] flex-col '>
                     <span className='text-base my-3'>LEAVE A MESSAGE</span>
                     <h2 className='font-bold text-3xl my-3'>We Love To Hear From You.</h2>
@@ -95,7 +97,7 @@ const Contact = ({ setFoot, setNav }) => {
                         <p className='m-0 text-base leading-6'><span className='text-lg font-semibold block text-black'>John Doe</span>Senior marketing manager <br /> Phone:+000034352 <br />Email: xyz@gmail.com</p>
                     </div>
                 </div>
-            </section>
+            </section> */}
         </>
          }
        </>

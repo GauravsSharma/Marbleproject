@@ -32,8 +32,7 @@ const About = ({setNav,setFoot}) => {
       <img src="https://jugyah-dev-property-photos.s3.ap-south-1.amazonaws.com/marble_floor_design_02_png_95410ebd34.webp" className='w-full sm:w-1/2 h-1/2' alt="marble"/>
       <div className='sm:pl-[50px] w-full sm:w-1/2 py-5'>
        <h2 className='font-bold text-[2rem] sm:text-[3rem]'>Who We Are ?</h2>
-       <p>A skilled marble contractor specializes in providing high-quality marble designs for floors, stairs, walls, countertops, and more. They offer a wide selection of marble styles, colors, and finishes to match any aesthetic, from classic to modern. These contractors combine craftsmanship with advanced tools to deliver precise installations, ensuring durability and elegance. With expertise in customization, they create unique patterns, inlays, and textures to enhance any space. Additionally, they guide clients in selecting the best marble type for specific applications, balancing beauty and functionality. Their commitment to quality and attention to detail ensures a flawless, long-lasting result for every project.
-       The smooth, polished surface of marble stairs enhances their aesthetic appeal, reflecting light and creating a sense of openness. Additionally, marble is highly durable, resistant to scratches, and can withstand heavy foot traffic, making it ideal for staircases. However, it is also porous and prone to staining, so sealing is necessary to protect it from moisture and spills.
+       <p>A skilled marble contractor specializes in providing high-quality marble designs for floors, stairs, walls, countertops, and more. They offer a wide selection of marble styles, colors, and finishes to match any aesthetic, from classic to modern. These contractors combine craftsmanship with advanced tools to deliver precise installations, ensuring durability and elegance. With expertise in customization, they create unique patterns, inlays, and textures to enhance any space. Additionally, they guide clients in selecting the best marble type for specific applications, balancing beauty and functionality. 
        </p>
        <br/>
        <abbr title="" className='my-4 font-semibold'>Provide the good finishing marbles towards you with our efficient working on it.</abbr>
@@ -44,7 +43,7 @@ const About = ({setNav,setFoot}) => {
    <section id="about-app" className="p-5 sm:p-10  text-center ">
      <h1 className='text-[2rem] font-bold sm:text-[3rem]'>Download Our <a href="" className='text-blue-800 decoration-slate-800'>App</a></h1>
      <div className="video w-full sm:w-[70%] h-full mt-[30px] mx-auto">
-     <video autoPlay muted loop src="https://gauravssharma.github.io/Cara.in/about/1.mp4" className='w-full h-full rounded-2xl'></video>
+     <video autoPlay muted loop src="" className='w-full h-full rounded-2xl'></video>
 
      </div>
     </section>

@@ -4,7 +4,7 @@ import Home from './pages/home/Home'
 import Footer from './components/footer/Footer'
 import { Route, Routes } from 'react-router-dom'
 import ItemDetail from './pages/itemDetail/ItemDetail'
-import Blog from './pages/blog/Blog'
+// import Blog from './pages/blog/Blog'
 import About from './pages/about/About'
 import Contact from './pages/contact/Contact'
 import Shopping from './pages/shopping/Shopping'
@@ -30,7 +30,7 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Home setNav={setNav} setFoot={setFoot}/>}/>
         <Route path='/item-details/:id' element={<ItemDetail setNav={setNav} setFoot={setFoot}/>}/>
-        <Route path='/blog' element={<Blog setNav={setNav} setFoot={setFoot}/>}/>
+        {/* <Route path='/blog' element={<Blog setNav={setNav} setFoot={setFoot}/>}/> */}
         <Route path='/about' element={<About setNav={setNav} setFoot={setFoot}/>}/>
         <Route path='/contact' element={<Contact setNav={setNav} setFoot={setFoot}/>}/>
         <Route path='/shopping/:category' element={<Shopping setNav={setNav} setFoot={setFoot}/>}/>
