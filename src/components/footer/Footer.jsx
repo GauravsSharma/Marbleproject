@@ -39,29 +39,29 @@ const Footer = () => {
             <div className="grid grid-cols-2 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
               <div>
                 <h3 className="text-gray-700 uppercase">About</h3>
-                <a href="#" className="block mt-2 text-sm text-gray-600 hover:underline">Company</a>
-                <a href="#" className="block mt-2 text-sm text-gray-600 hover:underline">Community</a>
-                <a href="#" className="block mt-2 text-sm text-gray-600 hover:underline">Careers</a>
+                <a href="#" className="block mt-2 text-sm text-gray-600 hover:underline">Home</a>
+                <a href="#" className="block mt-2 text-sm text-gray-600 hover:underline">About</a>
+                <a href="#" className="block mt-2 text-sm text-gray-600 hover:underline">Contact</a>
               </div>
 
               <div>
                 <h3 className="text-gray-700 uppercase">Blog</h3>
-                <a href="#" className="block mt-2 text-sm text-gray-600 hover:underline">Tech</a>
-                <a href="#" className="block mt-2 text-sm text-gray-600 hover:underline">Music</a>
-                <a href="#" className="block mt-2 text-sm text-gray-600 hover:underline">Videos</a>
+                <a href="#" className="block mt-2 text-sm text-gray-600 hover:underline">Marble</a>
+                <a href="#" className="block mt-2 text-sm text-gray-600 hover:underline">Handicrafts</a>
+                <a href="#" className="block mt-2 text-sm text-gray-600 hover:underline">Stones</a>
               </div>
 
               <div>
                 <h3 className="text-gray-700 uppercase">Products</h3>
-                <a href="#" className="block mt-2 text-sm text-gray-600 hover:underline">Mega cloud</a>
-                <a href="#" className="block mt-2 text-sm text-gray-600 hover:underline">Aperion UI</a>
-                <a href="#" className="block mt-2 text-sm text-gray-600 hover:underline">Meraki UI</a>
+                <a href="#" className="block mt-2 text-sm text-gray-600 hover:underline">Book Call</a>
+                <a href="#" className="block mt-2 text-sm text-gray-600 hover:underline">Designs</a>
+                <a href="#" className="block mt-2 text-sm text-gray-600 hover:underline">Hand-Made</a>
               </div>
 
               <div>
                 <h3 className="text-gray-700 uppercase">Contact</h3>
-                <span className="block mt-2 text-sm text-gray-600 hover:underline">+1 526 654 8965</span>
-                <span className="block mt-2 text-sm text-gray-600 hover:underline">example@email.com</span>
+                <span className="block mt-2 text-sm text-gray-600 hover:underline">6398647656</span>
+                <span className="block mt-2 text-sm text-gray-600 hover:underline">Akhan656500@gmail.com</span>
               </div>
             </div>
           </div>
@@ -70,7 +70,7 @@ const Footer = () => {
         <hr className="h-px my-6 bg-gray-200 border-none"/>
 
         <div>
-          <p className="text-center text-gray-500">© Brand 2020 - Develope and design by Gaurav Sharma</p>
+          <p className="text-center text-gray-500">@Design and made by </p>
         </div>
       </div>
     </footer>
