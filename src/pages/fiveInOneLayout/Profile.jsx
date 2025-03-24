@@ -89,24 +89,9 @@ const Profile = () => {
                       <p className='text-xs text-slate-400 font-semibold'>PHONE NUMBER</p>
                       <h1 className="sm:text-xl text-lg">{userData?.phoneNumber}</h1>
                     </div>
-                    <div className='relative w-full sm:w-1/2 text-start'>
-                      <p className='text-xs text-slate-400 font-semibold'>ALTERNATE NUMBER</p>
-                      <h1 className="sm:text-xl text-lg">{userData?.altNumber}</h1>
-
-                    </div>
+                  
                   </div>
-                  <div className='flex flex-col sm:flex-row sm:gap-0 gap-5 mt-10 w-full justify-between items-center'>
-                    <div className='relative w-full sm:w-1/2 text-start' >
-                      <p className='text-xs text-slate-400 font-semibold'>DATE OF BIRTH</p>
-                      <h1 className="sm:text-xl text-lg">{userData?.dob}</h1>
-
-                    </div>
-                    <div className='relative w-full sm:w-1/2 text-start'>
-                      <p className='text-xs text-slate-400 font-semibold'>GENDER</p>
-                      <h1 className="sm:text-xl text-lg">{userData?.gender}</h1>
-
-                    </div>
-                  </div>
+                
                   <button className='w-40 mt-5 p-1 border bg-slate-800  duration-500 border-slate-800 text-white flex justify-center items-center ' onClick={()=>setIsModelShow(true)}> Edit
                   </button>
                 </div>

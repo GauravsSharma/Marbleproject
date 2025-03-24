@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { FaPlusCircle } from "react-icons/fa";
 import AdForm from './AdForm';
 const Address = () => {
-  const [loading,setLoading] = useState(true);
+  const [loading,setLoading] = useState(false);
     const [isAddShow,setIsAddShow] = useState(false);
     const [userAddress,setUserAddress] = useState(null);
     const getAddress=()=>{
@@ -14,9 +14,6 @@ const Address = () => {
       else{
        setUserAddress(null);
       }
-      setTimeout(() => {
-       setLoading(false);
-     }, 3000);
     }
     useEffect(()=>{
       getAddress();
@@ -55,7 +52,6 @@ const Address = () => {
        </div>
       <AdForm isAddShow={isAddShow} setIsAddShow={setIsAddShow}
        address={userAddress?.address} 
-       landmark={userAddress?.landmark} 
        zipCode={userAddress?.zipCode} 
        country={userAddress?.country} 
        state={userAddress?.state} 
@@ -87,16 +83,6 @@ const Address = () => {
         </div>
         <div className='flex flex-col sm:flex-row gap-5 mt-10 w-full justify-between items-center'>
             <div className='relative w-full sm:w-1/2 text-start'>
-              <p className='text-base sm:text-xs text-slate-400 font-semibold'>Your Landmark</p>
-              {
-                userAddress?(
-                    <h1 className='text-semibold text-xl'>{userAddress?.landmark}</h1>
-                ):(
-                    <h1 className='text-semibold text-xl'>Nothing provided</h1>
-                )
-              }
-            </div>
-            <div className='relative w-full sm:w-1/2 text-start'>
               <p className='text-base sm:text-xs text-slate-400 font-semibold'>Your Postal Code</p>
               {
                 userAddress?(
@@ -106,8 +92,6 @@ const Address = () => {
                 )
               }
             </div>
-        </div>
-        <div className='flex flex-col sm:flex-row gap-5 mt-10 w-full justify-between items-center'>
             <div className='relative w-full sm:w-1/2 text-start'>
               <p className='text-base sm:text-xs text-slate-400 font-semibold'>Your State</p>
               {

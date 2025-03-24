@@ -5,63 +5,48 @@ import { RxCross2 } from "react-icons/rx";
 import toast ,{ Toaster } from 'react-hot-toast';
 import * as Yup from 'yup'
 const addressScehma = Yup.object({
-  name: Yup.string().required("*Please enter your name"),
-  phoneNumber: Yup.string().max(10, "*Phone number must be at most 10 characters").required("*Please enter your phone number"),
   address1: Yup.string().min(6, "*Address must be at least 6 characters").required("*Please enter your address"),
   zipCode: Yup.string().min(5, "*Zip code must be at least 5 characters").required("*Please enter your zip code"),
   country: Yup.string().min(3, "*Country must be at least 3 characters").required("*Please enter your country"),
   state: Yup.string().min(5, "*State must be at least 5 characters").required("*Please enter your state"),
-  landmark: Yup.string().min(3, "*Landmark must be at least 3 characters").required("*Please enter your landmark"),
 })
-const AdForm = ({ isAddShow, setIsAddShow, address = "", landmark = "", zipCode = "", country = "", state = "",getUserAddress,name="",phoneNumber=""})=>{
+const AdForm = ({ isAddShow, setIsAddShow, address = "", zipCode = "", country = "", state = "",getUserAddress,name="",phoneNumber=""})=>{
   const [formValues, setFormValues] = useState({
-    name:name,
-    phoneNumber:phoneNumber,
     address1: address,
     zipCode: zipCode,
     country: country,
     state: state,
-    landmark: landmark
   });
 
   useEffect(() => {
     setFormValues({
-      name:name,
-    phoneNumber:phoneNumber,
       address1: address,
       zipCode: zipCode,
       country: country,
       state: state,
-      landmark: landmark
     });
-  }, [address, landmark, zipCode, country, state]);
+  }, [address, zipCode, country, state]);
 
 
   const initialValues = {
-    name:name,
-    phoneNumber:phoneNumber,
     address1: address,
     zipCode: zipCode,
     country: country,
     state: state,
-    landmark: landmark
   };
 
   useEffect(() => {
     // Update the form values when props change
     setFormValues(initialValues);
-  }, [address, landmark, zipCode, country, state]);
+  }, [address, zipCode, country, state]);
 
   const handleSubmit = (formValues, action) => {
 
     const addressData = {
-      phoneNumber:formValues.phoneNumber,
-      name:formValues.name,
       address: formValues.address1,
       zipCode: formValues.zipCode,
       country: formValues.country,
       state: formValues.state,
-      landmark: formValues.landmark
     };
 
     localStorage.setItem("userAddress", JSON.stringify(addressData));
@@ -109,30 +94,6 @@ const AdForm = ({ isAddShow, setIsAddShow, address = "", landmark = "", zipCode 
                         <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
                           <Formik initialValues={initialValues} validationSchema={addressScehma} onSubmit={handleSubmit}>
                             <Form className="space-y-4 md:space-y-6">
-                              <h1 className="text-2xl font-semibold">
-                                Add Your Address
-                              </h1>
-                              <div>
-                                <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-900">Your Full Name</label>
-                                <Field
-                                  type="text"
-                                  id="name"
-                                  name="name"
-                                  className="border outline-0 border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-100"
-                                />
-                                <ErrorMessage name="name" component="p" className='text-red-500 text-sm m-0.5'/>
-                              </div>
-
-                              <div>
-                                <label htmlFor="phoneNumber" className="block mb-2 text-sm font-medium text-gray-900">Contact Number</label>
-                                <Field
-                                  type="text"
-                                  id="phoneNumber"
-                                  name="phoneNumber"
-                                  className="border outline-0 border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-100"
-                                />
-                                <ErrorMessage name="phoneNumber" component="p" className='text-red-500 text-sm m-0.5' />
-                              </div>
                               <div>
                                 <label htmlFor="address1" className="block mb-2 text-sm font-medium text-gray-900">Address 1</label>
                                 <Field
@@ -177,16 +138,6 @@ const AdForm = ({ isAddShow, setIsAddShow, address = "", landmark = "", zipCode 
                                 <ErrorMessage name="state" component="p" className='text-red-500 text-sm m-0.5' />
                               </div>
 
-                              <div>
-                                <label htmlFor="landmark" className="block mb-2 text-sm font-medium text-gray-900">Landmark</label>
-                                <Field
-                                  type="text"
-                                  id="landmark"
-                                  name="landmark"
-                                  className="border outline-0 border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-100"
-                                />
-                                <ErrorMessage name="landmark" component="p" className='text-red-500 text-sm m-0.5' />
-                              </div>
 
                               <button
                                 type="submit"
