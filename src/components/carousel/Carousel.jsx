@@ -1,5 +1,6 @@
 import React, { useState,useEffect } from 'react'
-import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs'
+import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
+
 import { FiLoader } from 'react-icons/fi';
 const Carousel = () => {
     const [loading, setLoading] = useState(true);
@@ -20,17 +21,15 @@ const Carousel = () => {
   
     const slides = [
         {
-            url: "https://5.imimg.com/data5/YH/VV/JS/SELLER-6697277/marble-handicraft-table.jpg",
+            url: "https://github.com/Akbarkhan2266/images/blob/main/loop1.png?raw=true",
         },
         {
-            url: "https://5.imimg.com/data5/SELLER/Default/2024/6/425919528/HZ/CU/ID/135892505/marble-stair-inlay-art-500x500.jpeg"
+            url: "https://github.com/Akbarkhan2266/images/blob/main/loop2.png?raw=true"
         },
         {
-            url: "https://5.imimg.com/data5/SELLER/Default/2022/5/WM/FT/WS/30049520/c7e9634fabf0f484f77cbc13e445a7b6-250x250.jpg"
+            url: "https://github.com/Akbarkhan2266/images/blob/main/loop3.png?raw=true"
         },
-        {
-            url: "https://5.imimg.com/data5/SELLER/Default/2023/12/370344523/NO/OO/SR/205251836/stairs-inlay-work-makrana-marble-tile-500x500.jpg"
-        },
+       
     ]
     const mobileImages = [
         {url: "https://i0.wp.com/pandeymoorti.com/wp-content/uploads/2023/08/marble-matki-handicraft-3-1.jpg?fit=800%2C800&ssl=1"},
