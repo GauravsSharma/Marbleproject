@@ -20,21 +20,21 @@ const Carousel = () => {
   
     const slides = [
         {
-            url: "https://cdn-media.powerlook.in/mycustomfolder/Coechet-20Shirts-20231Nov.jpg",
+            url: "https://5.imimg.com/data5/YH/VV/JS/SELLER-6697277/marble-handicraft-table.jpg",
         },
         {
-            url: "https://cdn.sanity.io/images/qa41whrn/staging/de26961c21732dfefb070df4de59cc0b650269b1-2880x1040.jpg?w=2160&q=80&auto=format"
+            url: "https://5.imimg.com/data5/SELLER/Default/2024/6/425919528/HZ/CU/ID/135892505/marble-stair-inlay-art-500x500.jpeg"
         },
         {
-            url: "https://cdn-media.powerlook.in/mycustomfolder/Winter-Jackets.jpg"
+            url: "https://5.imimg.com/data5/SELLER/Default/2022/5/WM/FT/WS/30049520/c7e9634fabf0f484f77cbc13e445a7b6-250x250.jpg"
         },
         {
-            url: "https://assets.ajio.com/cms/AJIO/WEB/D-1.0-UHP-2802023-MainBannerDailyChanging-Z1-P4-GAP-min50.jpg"
+            url: "https://5.imimg.com/data5/SELLER/Default/2023/12/370344523/NO/OO/SR/205251836/stairs-inlay-work-makrana-marble-tile-500x500.jpg"
         },
     ]
     const mobileImages = [
-        {url: "https://cdn-media.powerlook.in/mycustomfolder/Plain_T-shirts2023.jpg"},
-        {url: "https://cdn-media.powerlook.in/mycustomfolder/checked_shirts2023.jpg"}
+        {url: "https://i0.wp.com/pandeymoorti.com/wp-content/uploads/2023/08/marble-matki-handicraft-3-1.jpg?fit=800%2C800&ssl=1"},
+        {url: "https://i.redd.it/marble-handicrafts-of-jaipur-v0-r0fdutzos96c1.jpg?width=1224&format=pjpg&auto=webp&s=ecee8b865965a7ac9d8288fad33b1ef28cbd6848"}
      ]
      const images = isMobile ? mobileImages : slides;
     const [currentIdx, setCurrIdx] = useState(0);

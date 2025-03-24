@@ -59,11 +59,11 @@ const Home = ({ setFoot, setNav }) => {
         </> : <>
           <Carousel />
           <div className='p-5 sm:py-10 sm:px-20 h-auto'>
-            <h1 className=' text-xl sm:text-2xl  text-center my-1'>Winter Is Coming</h1>
-            <p className='sm:text-base text-sm text-slate-400 text-center mb-7'>Upgrade your wardrobe with our must-have new launches</p>
-            <div className='flex flex-col justify-center gap-2 sm:gap-12 overflow-auto items-center sm:flex-row '>
-              <Img className="h-[80%] sm:h-96 object-cover" src="https://cdn-media.powerlook.in/mycustomfolder/tshirt_20_10.jpg" alt="" />
-              <Img className="h-[80%] sm:h-96 object-cover" src="https://cdn-media.powerlook.in/mycustomfolder/tshirt_20_10_23.jpg" alt="" />
+            <h1 className=' text-xl sm:text-2xl  text-center my-1'>MARBLE DESIGN'S</h1>
+            <p className='sm:text-base text-sm text-slate-400 text-center mb-7'>Upgrade your home, temple and your environment with our new fresh designs</p>
+            <div className='flex flex-col justify-center gap-2 sm:gap-12 items-center sm:flex-row '>
+              <Img className="h-[80%] sm:h-96 object-cover" src="image1.jpg" alt=""   textLines={["Temple Marbles", ]}/>
+              <Img className="h-[80%] sm:h-96 object-cover" src="image2.jpg" alt="" textLines={["Marbles"]} />
             </div>
           </div>
           <div className='p-5 sm:py-10 sm:px-20'>
@@ -72,52 +72,52 @@ const Home = ({ setFoot, setNav }) => {
             <div className="flex justify-between mt-10 flex-wrap w-full">
               <Link to="/shopping/shirts" className='w-1/2 sm:w-44 h-52'>
                 <div className="rounded-xl h-full w-full sm:my-0 my-2 sm:w-44 hover:scale-110 hover:shadow-2xl duration-700 shadow-lg">
-                  <img src="https://cdn-media.powerlook.in/catalog/category/Shirts.jpg" style={{ height: '80%', width: '100%', objectFit: "cover" }} />
-                  <h1 className='font-bold text-lg text-center h-[20%] p-2'>SHIRTS</h1>
+                  <img src="https://i.pinimg.com/736x/58/ff/89/58ff89a0f9072e966ab97e1bf04477ac.jpg" style={{ height: '80%', width: '100%', objectFit: "cover" }} />
+                  <h1 className='font-bold text-lg text-center h-[20%] p-2'>Floor Marbles</h1>
                 </div></Link>
               <Link to="/shopping/pants" className='w-1/2 sm:w-44 h-52'> <div className="rounded-xl h-full w-full sm:w-44 sm:my-0 my-2 hover:scale-110 hover:shadow-2xl duration-700 shadow-lg">
-                <img src="https://cdn-media.powerlook.in/catalog/category/Bottoms.jpg" style={{ height: '80%', width: '100%', objectFit: "cover" }} />
-                <h1 className='font-bold text-lg text-center h-[20%] p-2'>BOTTOMS</h1>
+                <img src="https://5.imimg.com/data5/SELLER/Default/2024/1/377927411/TB/EB/BB/205411933/wall-inlay-9-500x500.jpg" style={{ height: '80%', width: '100%', objectFit: "cover" }} />
+                <h1 className='font-bold text-lg text-center h-[20%] p-2'>Wall Marbles</h1>
               </div></Link>
               <Link to="/shopping/jackets" className='w-1/2 sm:w-44 h-52'>
                 <div className="rounded-xl h-full w-full sm:w-44 sm:my-0 my-2 hover:scale-110 hover:shadow-2xl duration-700 shadow-lg">
-                  <img src="https://cdn-media.powerlook.in/catalog/category/Jackets.jpg" style={{ height: '80%', width: '100%', objectFit: "cover" }} />
-                  <h1 className='font-bold text-lg text-center h-[20%] p-2'>JACKETS</h1>
+                  <img src="https://5.imimg.com/data5/SELLER/Default/2024/3/397669384/EH/IJ/NW/22937853/marble-staircase-design.jpg" style={{ height: '80%', width: '100%', objectFit: "cover" }} />
+                  <h1 className='font-bold text-lg text-center h-[20%] p-2'>Stairs Marbles</h1>
                 </div></Link>
               <Link to="/shopping/coorders" className='w-1/2 sm:w-44 h-52'>
                 <div className="rounded-xl h-full w-full sm:w-44 sm:my-0 my-2 hover:scale-110 hover:shadow-2xl duration-700 shadow-lg">
-                  <img src="https://cdn-media.powerlook.in/catalog/category/Co-Ords.jpg" style={{ height: '80%', width: '100%', objectFit: "cover" }} />
-                  <h1 className='font-bold text-lg text-center h-[20%] p-2'>CO-ORDS</h1>
+                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBAXHptdNP8yZuSew8-D7DBg28QD-l2qJ5HA&s" style={{ height: '80%', width: '100%', objectFit: "cover" }} />
+                  <h1 className='font-bold text-lg text-center h-[20%] p-2'>Temple Marbles</h1>
                 </div>
               </Link>
               <Link to="/shopping/t-shirts" className='w-1/2 sm:w-44 h-52'>
                 <div className="rounded-xl h-full w-full sm:w-44 sm:my-0 my-2 hover:scale-110 hover:shadow-2xl duration-700 shadow-lg">
-                  <img src="https://cdn-media.powerlook.in/catalog/category/T-shirts_1.jpg" style={{ height: '80%', width: '100%', objectFit: "cover" }} />
-                  <h1 className='font-bold text-lg text-center h-[20%] p-2'>T-SHIRTS</h1>
+                  <img src="https://media-cdn.tripadvisor.com/media/photo-s/1c/b6/91/eb/marble-handicrafts-in.jpg" style={{ height: '80%', width: '100%', objectFit: "cover" }} />
+                  <h1 className='font-bold text-lg text-center h-[20%] p-2'>Marbles</h1>
                 </div>
               </Link>
               <Link to="/shopping/shirts" className='w-1/2 sm:w-44 h-52'>
                 <div className="rounded-xl h-full w-full sm:w-44 sm:my-0 my-2 hover:scale-110 hover:shadow-2xl duration-700 shadow-lg">
-                  <img src="https://cdn-media.powerlook.in/catalog/category/On-Sale.jpg" style={{ height: '80%', width: '100%', objectFit: "cover" }} />
-                  <h1 className='font-bold text-lg text-center h-[20%] p-2'>70% OFF</h1>
+                  <img src="https://i.etsystatic.com/29921540/r/il/d27a22/4191437150/il_570xN.4191437150_93ew.jpg" style={{ height: '80%', width: '100%', objectFit: "cover" }} />
+                  <h1 className='font-bold text-lg text-center h-[20%] p-2'>Table Marbles</h1>
                 </div>
               </Link>
             </div>
           </div>
-          <div className='p-5 sm:p-20'>
-            <img src="https://cdn-media.powerlook.in/mycustomfolder/Live-Offer-1Nov-2023.jpg" alt="" />
-          </div>
+          {/* <div className='p-5 sm:p-20'>
+            <img src="" alt="" />
+          </div> */}
           <CardSection data={data1} heading={"New Arrival"} subHead={"Upgrade your wardrobe with our must-have shirts"} />
           <div className='p-5 sm:py-10 sm:px-20'>
-            <h1 className=' text-xl sm:text-2xl  text-center my-1'>Flannel Season</h1>
-            <p className='sm:text-base text-sm text-slate-400 text-center mb-7'>Shop a shirt + layer in one with this new collection</p>
-            <img className='w-full sm:h-[500px] h-[220px] object-cover' src="https://cdn-media.powerlook.in/mycustomfolder/discover-the-magic.jpg" alt="" />
+            <h1 className=' text-xl sm:text-2xl  text-center my-1'>Your Season To Renivate Your Home</h1>
+            <p className='sm:text-base text-sm text-slate-400 text-center mb-7'>Shop and deal with us on our products by contact us.....</p>
+            <img className='w-full sm:h-[500px] h-[220px] object-cover' src="https://i.redd.it/marble-handicrafts-of-jaipur-v0-r0fdutzos96c1.jpg?width=1224&format=pjpg&auto=webp&s=ecee8b865965a7ac9d8288fad33b1ef28cbd6848" alt="" />
 
           </div>
           {/* <CardSeclotion data={data2} heading={"Season's Best Collections"} subHead={"Discover the latest trends in streetwear"} /> */}
         </>
       }
-      <NewsLetter />
+      {/* <NewsLetter /> */}
     </>
 
   )

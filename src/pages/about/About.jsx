@@ -29,20 +29,21 @@ const About = ({setNav,setFoot}) => {
          </div>
       </div>:<>
       <section id="about-head" className="flex    flex-col sm:flex-row items-center p-5 sm:p-10">
-      <img src="https://gauravssharma.github.io/Cara.in/about/a6.jpg" className='w-full sm:w-1/2 h-auto' alt=""/>
+      <img src="https://jugyah-dev-property-photos.s3.ap-south-1.amazonaws.com/marble_floor_design_02_png_95410ebd34.webp" className='w-full sm:w-1/2 h-1/2' alt="marble"/>
       <div className='sm:pl-[50px] w-full sm:w-1/2 py-5'>
        <h2 className='font-bold text-[2rem] sm:text-[3rem]'>Who We Are ?</h2>
-       <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi corrupti dignissimos dicta exercitationem corporis recusandae cum deserunt quisquam quis. Cum praesentium inventore eveniet, cumque atque quis in. Sed inventore iure amet rem aperiam aspernatur delectus beatae? Laboriosam at ea Lorem ipsum dolor sit amet consectetur, adipisicing elit. In, eius!</p>
+       <p>A skilled marble contractor specializes in providing high-quality marble designs for floors, stairs, walls, countertops, and more. They offer a wide selection of marble styles, colors, and finishes to match any aesthetic, from classic to modern. These contractors combine craftsmanship with advanced tools to deliver precise installations, ensuring durability and elegance. With expertise in customization, they create unique patterns, inlays, and textures to enhance any space. Additionally, they guide clients in selecting the best marble type for specific applications, balancing beauty and functionality. 
+       </p>
        <br/>
-       <abbr title="" className='my-4 font-semibold'>Creating stunning images with as much o as little control as you like thanks to a choice of Basic and Creative mode</abbr>
+       <abbr title="" className='my-4 font-semibold'>Provide the good finishing marbles towards you with our efficient working on it.</abbr>
        <br/><br/>
-       <marquee bgcolor="#ccc" loop="-1" scrollamount="5" width="100%">Creating stunning images with as much o as little control as you like thanks to a choice of Basic and Creative mode</marquee>
+       <marquee bgcolor="#ccc" loop="-1" scrollamount="5" width="100%">! Provide You The Affordable Marbles, Designs and Materials To You In Efficient Cost !</marquee>
       </div>
    </section>
    <section id="about-app" className="p-5 sm:p-10  text-center ">
      <h1 className='text-[2rem] font-bold sm:text-[3rem]'>Download Our <a href="" className='text-blue-800 decoration-slate-800'>App</a></h1>
      <div className="video w-full sm:w-[70%] h-full mt-[30px] mx-auto">
-     <video autoPlay muted loop src="https://gauravssharma.github.io/Cara.in/about/1.mp4" className='w-full h-full rounded-2xl'></video>
+     <video autoPlay muted loop src="" className='w-full h-full rounded-2xl'></video>
 
      </div>
     </section>

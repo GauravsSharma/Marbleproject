@@ -96,34 +96,7 @@ const Header = () => {
                       <img className="sm:min-w-[7rem] w-[6rem] h-8 sm:h-8" src={Logo} alt="caralogo" />
                     </Link>
                     <div className={`sm:mx-5 sm:mr-2 bg-white sm:relative absolute duration-500 ${toggleSearch} -z-10 w-full left-0 px-2 sm:z-50 block `}>
-                      <div className="relative">
-                        <span className="absolute inset-y-0 left-0 flex items-center pl-3">
-                          <svg className="w-5 h-5 text-gray-400" viewBox="0 0 24 24" fill="none">
-                            <path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"></path>
-                          </svg>
-                        </span>
-                        <input
-                          type="text"
-                          className={`w-full sm:w-full py-2 pl-10 pr-4 text-gray-700 bg-white focus:border-slate-100 focus:outline-none ${searchOption.length > 0 ? "border-t border-l border-r rounded-tl-md rounded-tr-md" : "sm:border rounded-md"}`}
-                          placeholder="Search"
-                          onChange={handleChange}
-                          onKeyUp={searchQuery}
-                          value={query}
-
-                        />
-                      </div>
-                      {
-                        searchOption.length > 0 && <div className='h-auto w-full absolute left-0 bg-white p-1 border-l  border-r border-b rounded-br-md rounded-bl-md'>
-                          {
-                            searchOption.map((option) => {
-                              return (<li key={Math.random()} className='text-[15px] cursor-pointer text-slate-400 p-2 sm:ml-6 ml-9 list-none'
-                                onClick={() => handleSearch(option)}
-                              >{option}</li>)
-                            })
-                          }
-
-                        </div>
-                      }
+                     
                     </div>
 
                   </div>
@@ -167,17 +140,12 @@ const Header = () => {
                     >
                       Home
                     </Link>
-                    <Link
-                      to="/blog"
-                      className="my-2 text-base leading-5 text-gray-700 transition-colors duration-300 transform hover:text-blue-600 hover:underline md:mx-4 md:my-1"
-                    >
-                      Blog
-                    </Link>
+                    
                     <Link
                       to="/about"
                       className="my-2 text-base leading-5 text-gray-700 transition-colors duration-300 transform hover:text-blue-600 hover:underline md:mx-4 md:my-1"
                     >
-                      About Cara
+                      About Us
                     </Link>
                     <Link
                       to="/contact"
@@ -223,11 +191,12 @@ const Header = () => {
 
               </div>
               <div className=" pt-4 my-2  border-t gap-3 overscroll-x-auto sm:scroll-hidden flex justify-center item-center">
-                <Link className="sm:mx-4 ml-2 text-nowrap text-sm leading-5 text-gray-700 transition-colors duration-300 transform  hover:text-blue-600 dark:hover:text-blue-400 hover:underline md:my-0" to="/shopping/t-shirts">T-shirts</Link>
-                <Link className="sm:mx-4 ml-2 text-sm text-nowrap leading-5 text-gray-700 transition-colors duration-300 transform  hover:text-blue-600 whitespace-nowrap dark:hover:text-blue-400 hover:underline md:my-0" to="/shopping/shirts">Shirts</Link>
-                <Link className="sm:mx-4 ml-2 text-sm  text-nowrap leading-5 text-gray-700 transition-colors duration-300 transform  hover:text-blue-600 dark:hover:text-blue-400 hover:underline md:my-0" to="/shopping/coorders">Co-Orders</Link>
-                <Link className="sm:mx-4 ml-2 text-sm  text-nowrap leading-5 text-gray-700 transition-colors duration-300 transform  hover:text-blue-600 dark:hover:text-blue-400 hover:underline md:my-0" to="/shopping/pants">Bottoms</Link>
-                <Link className="sm:mx-4 ml-2 text-sm text-nowrap  leading-5 text-gray-700 transition-colors duration-300 transform  hover:text-blue-600 dark:hover:text-blue-400 hover:underline md:my-0" to="/shopping/jackets">Jackets</Link>
+                <Link className="sm:mx-4 ml-2 text-nowrap text-sm leading-5 text-gray-700 transition-colors duration-300 transform  hover:text-blue-600 dark:hover:text-blue-400 hover:underline md:my-0" to="/shopping/floor">Floor</Link>
+                <Link className="sm:mx-4 ml-2 text-sm text-nowrap leading-5 text-gray-700 transition-colors duration-300 transform  hover:text-blue-600 whitespace-nowrap dark:hover:text-blue-400 hover:underline md:my-0" to="/shopping/wall">Wall</Link>
+                <Link className="sm:mx-4 ml-2 text-sm  text-nowrap leading-5 text-gray-700 transition-colors duration-300 transform  hover:text-blue-600 dark:hover:text-blue-400 hover:underline md:my-0" to="/shopping/stairs">Stairs</Link>
+                <Link className="sm:mx-4 ml-2 text-sm  text-nowrap leading-5 text-gray-700 transition-colors duration-300 transform  hover:text-blue-600 dark:hover:text-blue-400 hover:underline md:my-0" to="/shopping/marbles">Marbles</Link>
+                <Link className="sm:mx-4 ml-2 text-sm text-nowrap  leading-5 text-gray-700 transition-colors duration-300 transform  hover:text-blue-600 dark:hover:text-blue-400 hover:underline md:my-0" to="/shopping/temples">Temples</Link>
+                <Link className="sm:mx-4 ml-2 text-sm text-nowrap  leading-5 text-gray-700 transition-colors duration-300 transform  hover:text-blue-600 dark:hover:text-blue-400 hover:underline md:my-0" to="/shopping/tables">Tables</Link>
               </div>
             </div>
           </nav>

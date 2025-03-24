@@ -1,5 +1,6 @@
 import { createContext, useContext } from "react";
 import { databases, ID, storage } from "../lib/appwrite";
+import { Query } from "appwrite";
 
 const Appwrite = createContext(null);
 
@@ -43,7 +44,9 @@ export const AppwriteContextProvider = ({ children }) => {
         const result = await databases.listDocuments(
           import.meta.env.VITE_DATABASE_ID,
           import.meta.env.VITE_COLLECTION_ID,
-          []
+          [
+            Query.limit(10) // Fetch only 10 documents
+        ]
         );
         console.log(result);
         return result;
