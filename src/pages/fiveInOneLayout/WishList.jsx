@@ -1,19 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import Card from '../../components/cardSection/Card'
 const WishList = () => {
-  const [loading,setLoading] = useState(true);
+  const [loading,setLoading] = useState(false);
   const [wishlist,setWish] = useState();
 
   useEffect(()=>{
     // localStorage.removeItem("wishlist")
-    const data = localStorage.getItem('wishlist')
+    const data = localStorage.getItem('wishlist') 
     setWish(()=>{
       return data?JSON.parse(data):[];
     })
-    setTimeout(() => {
-     setLoading(false);
-   }, 3000);
-
  },[])
   return (
     <>
@@ -92,12 +88,12 @@ const WishList = () => {
         </div>:<>
           <div className='py-10 sm:px-10 sm:py-14 w-full sm:w-[85%]'>
             <h1 className='text-xl sm:text-2xl font-semibold mb-5 px-6'>Your WishList</h1>
-            <div className='flex flex-wrap'>
+            <div className='flex flex-wrap gap-5'>
                {
-                wishlist.length>0?<>
+                wishlist?.length>0?<>
                  {
                    wishlist?.map((item)=>(
-                      <Card img={item.img} id={item.id} price1 ={item.DPrice} price2={item.OPrice} name={item.name} isWish={true} setWish={setWish}/>
+                      <Card thumbnail={item.thumbnail} id={item.id} price={item.price} title={item.title} isWish={true} setWish={setWish}/>
                     ))
                  }
                 </>:<>

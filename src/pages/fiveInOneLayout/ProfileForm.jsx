@@ -7,18 +7,13 @@ import * as Yup from 'yup'
 const profileScehma = Yup.object({
     fullName: Yup.string().required("*Please enter your full name"),
     email: Yup.string().email("*Please enter a valid email").required("*Please enter your email"),
-    phoneNumber: Yup.string().max(10, "*Phone number must be at most 10 characters").required("*Please enter your phone number"),
-    altNumber: Yup.string().max(10, "*Alternative number must be at most 10 characters").required("*Please enter your alternative number"),
-    dob: Yup.string(),
-    gender: Yup.string().min(4,"gender must be 4 characters").required("*Please select your gender"),})
+    phoneNumber: Yup.string().max(10, "*Phone number must be at most 10 characters").required("*Please enter your phone number")
+})
 const ProfileForm = ({ isModelShow, setIsModelShow, fullName = "", email = "", phoneNumber = "", altNumber = "", dob = "", gender = "",getUserDetails }) => {
     const [formValues, setFormValues] = useState({
         fullName: fullName,
         phoneNumber: phoneNumber,
         email: email,
-        altNumber: altNumber,
-        dob: dob,
-        gender: gender,
     });
 
     useEffect(() => {
@@ -26,35 +21,26 @@ const ProfileForm = ({ isModelShow, setIsModelShow, fullName = "", email = "", p
             fullName: fullName,
             phoneNumber: phoneNumber,
             email: email,
-            altNumber: altNumber,
-            dob: dob,
-            gender: gender,
         });
-    }, [phoneNumber, email, altNumber, dob, gender]);
+    }, [phoneNumber, email]);
 
 
     const initialValues = {
         fullName: fullName,
         phoneNumber: phoneNumber,
         email: email,
-        altNumber: altNumber,
-        dob: dob,
-        gender: gender,
     };
 
     useEffect(() => {
         // Update the form values when props change
         setFormValues(initialValues);
-    }, [phoneNumber, email, altNumber, dob, gender]);
+    }, [phoneNumber, email]);
 
     const handleSubmit = (formValues, action) => {
         const userData = {
             fullName: formValues.fullName,
             phoneNumber: formValues.phoneNumber,
             email: formValues.email,
-            altNumber: formValues.altNumber,
-            dob: formValues.dob,
-            gender: formValues.gender,
         };
 
         localStorage.setItem("user", JSON.stringify(userData));
@@ -103,7 +89,7 @@ const ProfileForm = ({ isModelShow, setIsModelShow, fullName = "", email = "", p
                                                     <Formik initialValues={initialValues} validationSchema={profileScehma} onSubmit={handleSubmit}>
                                                         <Form className="space-y-4 md:space-y-6">
                                                             <h1 className="text-2xl font-semibold">
-                                                                Add Your Address
+                                                                Add Your Info.
                                                             </h1>
                                                             <div>
                                                                 <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-900">Your Full Name</label>
@@ -126,16 +112,7 @@ const ProfileForm = ({ isModelShow, setIsModelShow, fullName = "", email = "", p
                                                                 />
                                                                 <ErrorMessage name="phoneNumber" component="p" className='text-red-500 text-sm m-0.5' />
                                                             </div>
-                                                            <div>
-                                                                <label htmlFor="state" className="block mb-2 text-sm font-medium text-gray-900">Alternative Number</label>
-                                                                <Field
-                                                                    type="text"
-                                                                    id="state"
-                                                                    name="altNumber"
-                                                                    className="border outline-0 border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-100"
-                                                                />
-                                                                <ErrorMessage name="altNumber" component="p" className='text-red-500 text-sm m-0.5' />
-                                                            </div>
+                                                       
                                                             <div>
                                                                 <label htmlFor="address1" className="block mb-2 text-sm font-medium text-gray-900">Email</label>
                                                                 <Field
@@ -147,27 +124,9 @@ const ProfileForm = ({ isModelShow, setIsModelShow, fullName = "", email = "", p
                                                                 <ErrorMessage name="email" component="p" className='text-red-500 text-sm m-0.5' />
                                                             </div>
 
-                                                            <div>
-                                                                <label htmlFor="zipCode" className="block mb-2 text-sm font-medium text-gray-900">Date Of Birth</label>
-                                                                <Field
-                                                                    type="date"
-                                                                    id="zipCode"
-                                                                    name="dob"
-                                                                    className="border outline-0 border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-100"
-                                                                />
-                                                                <ErrorMessage name="dob" component="p" className='text-red-500 text-sm m-0.5' />
-                                                            </div>
+                                                          
 
-                                                            <div>
-                                                                <label htmlFor="country" className="block mb-2 text-sm font-medium text-gray-900">Gender</label>
-                                                                <Field
-                                                                    type="text"
-                                                                    id="country"
-                                                                    name="gender"
-                                                                    className="border outline-0 border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-100"
-                                                                />
-                                                                <ErrorMessage name="gender" component="p" className='text-red-500 text-sm m-0.5' />
-                                                            </div>
+                                                         
 
                                                            
                                                             <button

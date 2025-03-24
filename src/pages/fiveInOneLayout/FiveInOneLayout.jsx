@@ -3,7 +3,7 @@ import { Outlet, NavLink } from 'react-router-dom';
 import { FaGreaterThan } from "react-icons/fa";
 import { RxCross2 } from "react-icons/rx";
 const FiveInOneLayout = () => {
-  const sidenav = ["Profile", "Wishlist", "Address", "Orders"];
+  const sidenav = ["Profile", "Wishlist", "Address"];
   const [isSideBarOpen,setSideBarOpen] = useState("-left-[100%]");
   return (
     <div className='flex relative'>

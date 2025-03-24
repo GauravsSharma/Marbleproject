@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { Hero } from './hero/Hero'
 import CardSection from '../../components/cardSection/CardSection'
 import Carousel from '../../components/carousel/Carousel';
 import Img from '../../components/lazyloader/Img'
-import { firestore, useFirebase } from '../../firebase/FirebaseContext';
-import { addDoc, collection } from 'firebase/firestore';
 import NewsLetter from '../../components/newsLetter/NewsLetter';
 import { Link } from 'react-router-dom';
 import {useAppwrite} from  "../../appwrite/AppwriteContext"
