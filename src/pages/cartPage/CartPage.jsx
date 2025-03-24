@@ -9,6 +9,7 @@ import toast, { Toaster } from "react-hot-toast";
 const CartPage = ({ setNav, setFoot }) => {
   const [loading, setLoading] = useState(false);
   const [isCheckoutShow, setISCheckoutShow] = useState(false);
+  const [allImages,setAllImages] = useState([])
   const [carts, setCarts] = useState(() => {
     const data = localStorage.getItem("cart");
     return data ? JSON.parse(data) : [];
@@ -46,7 +47,14 @@ const CartPage = ({ setNav, setFoot }) => {
     calculateSubTotal();
   });
 
-
+useEffect(()=>{
+  if(carts){
+    const images = carts.map((item)=>{return {thumbnail:item.thumbnail,price:item.price}})
+    console.log(images);
+    setAllImages(images)
+    
+  }
+},[carts])
   if (loading) {
     return (
       <>
@@ -176,6 +184,7 @@ const CartPage = ({ setNav, setFoot }) => {
         calculateOriginalPrice={calculateOriginalPrice}
         setISCheckoutShow={setISCheckoutShow}
         isCheckoutShow={isCheckoutShow}
+        allImages={allImages}
       />
 
       <Toaster />

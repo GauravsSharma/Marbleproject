@@ -1,331 +1,81 @@
-// import { useState } from "react";
-// import { useFormik } from "formik";
-// import * as Yup from "yup";
-// // import { AppwriteContext } from "../context/AppwriteContext"; // Adjust the path as needed
-// import { useAppwrite } from "../../appwrite/AppwriteContext";
+import React, { useEffect } from 'react';
+import { useFormik } from 'formik';
+import toast, { Toaster } from 'react-hot-toast';
+import * as Yup from 'yup';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAppwrite } from '../../appwrite/AppwriteContext';
 
-// const AddProductForm = () => {
-//   const { createDocument, uploadImage,getDownloadUrl } = useAppwrite();
-//   const [imagePreview, setImagePreview] = useState(null);
-//   const [imageFile, setImageFile] = useState(null);
-//   const [loading, setLoading] = useState(false);
+const loginSchema = Yup.object({
+    email: Yup.string().email().required("*Please enter your email"),
+    password: Yup.string().min(6).required("*Please enter your password"),
+});
 
-//   const formik = useFormik({
-//     initialValues: {
-//       title: "",
-//       price: "",
-//       description: "",
-//     },
-//     validationSchema: Yup.object({
-//       title: Yup.string().required("Title is required"),
-//       price: Yup.string("Price must be positive").required("Price is required"),
-//       description: Yup.string().required("Description is required"),
-//     }),
-//     onSubmit: async (values) => {
-//       setLoading(true);
-//       try {
-//         let uploadedImageId = null;
-
-//         // Upload image if selected
-//         if (imageFile) {
-//           const response = await uploadImage(imageFile);
-//           console.log("res---->",response);
-          
-//           uploadedImageId = response ? response.$id : null;
-//         }
-//         let url = "";
-//         if(uploadedImageId){
-//            url =  getDownloadUrl(uploadedImageId)
-//           console.log(url);
-//         }
-//         console.log("type---->",typeof values.price);
-        
-//         // Save product data to Appwrite
-//         const productData = {
-//           title: values.title,
-//           price: String(values.price),
-//           description: values.description,
-//           thumbnail: url,
-//         };
-
-//         await createDocument(productData); // Correct function for adding new products
-//         alert("Product added successfully!");
-//         formik.resetForm();
-//         setImagePreview(null);
-//       } catch (error) {
-//         console.error("Error adding product:", error);
-//       }
-//       setLoading(false);
-//     },
-//   });
-
-//   // Handle image change
-//   const handleImageChange = (e) => {
-//     const file = e.target.files[0];
-//     if (file) {
-//       setImageFile(file);
-//       setImagePreview(URL.createObjectURL(file));
-//     }
-//   };
-
-//   return (
-//     <div className="max-w-lg mx-auto bg-white shadow-lg rounded-lg p-6">
-//       <h2 className="text-2xl font-bold mb-4 text-center">Add Product</h2>
-//       <form onSubmit={formik.handleSubmit} className="space-y-4">
-        
-//         {/* Title Field */}
-//         <div>
-//           <label className="block text-gray-700">Title</label>
-//           <input
-//             type="text"
-//             name="title"
-//             value={formik.values.title}
-//             onChange={formik.handleChange}
-//             onBlur={formik.handleBlur}
-//             className="w-full border rounded-lg p-2"
-//           />
-//           {formik.touched.title && formik.errors.title && (
-//             <p className="text-red-500 text-sm">{formik.errors.title}</p>
-//           )}
-//         </div>
-
-//         {/* Price Field */}
-//         <div>
-//           <label className="block text-gray-700">Price ($)</label>
-//           <input
-//             type="text"
-//             name="price"
-//             value={formik.values.price}
-//             onChange={formik.handleChange}
-//             onBlur={formik.handleBlur}
-//             className="w-full border rounded-lg p-2"
-//           />
-//           {formik.touched.price && formik.errors.price && (
-//             <p className="text-red-500 text-sm">{formik.errors.price}</p>
-//           )}
-//         </div>
-
-//         {/* Description Field */}
-//         <div>
-//           <label className="block text-gray-700">Description</label>
-//           <textarea
-//             name="description"
-//             value={formik.values.description}
-//             onChange={formik.handleChange}
-//             onBlur={formik.handleBlur}
-//             className="w-full border rounded-lg p-2"
-//           />
-//           {formik.touched.description && formik.errors.description && (
-//             <p className="text-red-500 text-sm">{formik.errors.description}</p>
-//           )}
-//         </div>
-
-//         {/* Image Upload */}
-//         <div>
-//           <label className="block text-gray-700">Product Image</label>
-//           <input
-//             type="file"
-//             accept="image/*"
-//             onChange={handleImageChange}
-//             className="w-full border rounded-lg p-2"
-//           />
-//           {imagePreview && (
-//             <img src={imagePreview} alt="Preview" className="mt-2 w-32 h-32 object-cover rounded-lg" />
-//           )}
-//         </div>
-
-//         {/* Submit Button */}
-//         <button
-//           type="submit"
-//           className={`w-full bg-blue-600 text-white p-2 rounded-lg ${loading ? "opacity-50 cursor-not-allowed" : ""}`}
-//           disabled={loading}
-//         >
-//           {loading ? "Adding..." : "Add Product"}
-//         </button>
-//       </form>
-//     </div>
-//   );
-// };
-
-// export default AddProductForm;
-
-
-
-
-import { useState } from "react";
-import { useFormik } from "formik";
-import * as Yup from "yup";
-import { useAppwrite } from "../../appwrite/AppwriteContext";
-
-const AddProductForm = () => {
-  const { createDocument, uploadImage, getDownloadUrl } = useAppwrite();
-  const [imagePreview, setImagePreview] = useState(null);
-  const [imageFile, setImageFile] = useState(null);
-  const [loading, setLoading] = useState(false);
-
-  const categories = ["Temple", "Stairs", "wall", "marble", "floor","table"];
-
-  const formik = useFormik({
-    initialValues: {
-      title: "",
-      price: "",
-      description: "",
-      category: "", // New field
-    },
-    validationSchema: Yup.object({
-      title: Yup.string().required("Title is required"),
-      price: Yup.string("Price must be positive").required("Price is required"),
-      description: Yup.string().required("Description is required"),
-      category: Yup.string()
-        .oneOf(categories, "Invalid category")
-        .required("Category is required"),
-    }),
-    onSubmit: async (values) => {
-      setLoading(true);
-      try {
-        let uploadedImageId = null;
-
-        // Upload image if selected
-        if (imageFile) {
-          const response = await uploadImage(imageFile);
-          uploadedImageId = response ? response.$id : null;
-        }
-
-        let url = "";
-        if (uploadedImageId) {
-          url = getDownloadUrl(uploadedImageId);
-        }
-console.log(values);
-
-        // Save product data to Appwrite
-        const productData = {
-          title: values.title,
-          price: String(values.price),
-          description: values.description,
-          category: values.category, // Include category in product data
-          thumbnail: url,
-        };
-
-        await createDocument(productData);
-        alert("Product added successfully!");
-        formik.resetForm();
-        setImagePreview(null);
-      } catch (error) {
-        console.error("Error adding product:", error);
-      }
-      setLoading(false);
-    },
-  });
-
-  // Handle image change
-  const handleImageChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      setImageFile(file);
-      setImagePreview(URL.createObjectURL(file));
-    }
-  };
-
-  return (
-    <div className="max-w-lg mx-auto bg-white shadow-lg rounded-lg p-6">
-      <h2 className="text-2xl font-bold mb-4 text-center">Add Product</h2>
-      <form onSubmit={formik.handleSubmit} className="space-y-4">
-        
-        {/* Title Field */}
-        <div>
-          <label className="block text-gray-700">Title</label>
-          <input
-            type="text"
-            name="title"
-            value={formik.values.title}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            className="w-full border rounded-lg p-2"
-          />
-          {formik.touched.title && formik.errors.title && (
-            <p className="text-red-500 text-sm">{formik.errors.title}</p>
-          )}
-        </div>
-
-        {/* Price Field */}
-        <div>
-          <label className="block text-gray-700">Price ($)</label>
-          <input
-            type="text"
-            name="price"
-            value={formik.values.price}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            className="w-full border rounded-lg p-2"
-          />
-          {formik.touched.price && formik.errors.price && (
-            <p className="text-red-500 text-sm">{formik.errors.price}</p>
-          )}
-        </div>
-
-        {/* Description Field */}
-        <div>
-          <label className="block text-gray-700">Description</label>
-          <textarea
-            name="description"
-            value={formik.values.description}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            className="w-full border rounded-lg p-2"
-          />
-          {formik.touched.description && formik.errors.description && (
-            <p className="text-red-500 text-sm">{formik.errors.description}</p>
-          )}
-        </div>
-
-        {/* Category Field */}
-        <div>
-          <label className="block text-gray-700">Category</label>
-          <select
-            name="category"
-            value={formik.values.category}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            className="w-full border rounded-lg p-2"
-          >
-            <option value="" label="Select category" />
-            {categories.map((cat) => (
-              <option key={cat} value={cat}>
-                {cat}
-              </option>
-            ))}
-          </select>
-          {formik.touched.category && formik.errors.category && (
-            <p className="text-red-500 text-sm">{formik.errors.category}</p>
-          )}
-        </div>
-
-        {/* Image Upload */}
-        <div>
-          <label className="block text-gray-700">Product Image</label>
-          <input
-            type="file"
-            accept="image/*"
-            onChange={handleImageChange}
-            className="w-full border rounded-lg p-2"
-          />
-          {imagePreview && (
-            <img src={imagePreview} alt="Preview" className="mt-2 w-32 h-32 object-cover rounded-lg" />
-          )}
-        </div>
-
-        {/* Submit Button */}
-        <button
-          type="submit"
-          className={`w-full bg-blue-600 text-white p-2 rounded-lg ${loading ? "opacity-50 cursor-not-allowed" : ""}`}
-          disabled={loading}
-        >
-          {loading ? "Adding..." : "Add Product"}
-        </button>
-      </form>
-    </div>
-  );
+const initialValues = {
+    email: "",
+    password: "",
 };
 
-export default AddProductForm;
+const Login = ({setFoot,setNav}) => {
+    const appwrite = useAppwrite()
+    const navigate = useNavigate()
+    const { values, handleBlur, handleChange, touched, handleSubmit, errors } = useFormik({
+        initialValues,
+        validationSchema: loginSchema,
+        onSubmit: async(values, action) => {
+            try {
+                const res = await appwrite.login(values.email,values.password)
+                toast.success("Login successful");
+            } catch (error) {
+                toast.error("Something went wrong")
+            }
+            action.resetForm();
+        },
+    });
+  
+  useEffect(()=>{
+    if(appwrite.loggedInUser){
+        navigate("/")
+    }
+        setFoot(false);
+        setNav(false);
+    },[appwrite.loggedInUser])
+    return (
+        <div className="flex flex-wrap min-h-screen w-full content-center justify-center bg-gray-100 p-5 sm:py-10">
+            <div className="flex shadow-md flex-col sm:flex-row">
+                <div className="flex flex-wrap content-center justify-center rounded-l-md bg-white" style={{ width: '24rem', height: '32rem' }}>
+                    <div className="w-72">
+                        <h1 className="text-xl font-semibold">Welcome Back</h1>
+                        <small className="text-gray-400">Please enter your details</small>
+                        <form className="mt-4" onSubmit={handleSubmit}>
+                            <div className="mb-3">
+                                <label className="mb-2 block text-xs font-semibold">Email</label>
+                                <input type="email" placeholder="Enter your email" className="block w-full rounded-md border border-gray-300 focus:border-slate-700 focus:outline-none focus:ring-1 focus:ring-slate-700 py-1 px-1.5 text-gray-500" 
+                                name='email' value={values.email} onChange={handleChange} onBlur={handleBlur} />
+                                {errors.email && touched.email ? <p className='text-red-500 text-sm m-0.5'>{errors.email}</p> : null}
+                            </div>
+                            <div className="mb-3">
+                                <label className="mb-2 block text-xs font-semibold">Password</label>
+                                <input type="password" placeholder="*****" className="block w-full rounded-md border border-gray-300 focus:border-slate-700 focus:outline-none focus:ring-1 focus:ring-slate-700 py-1 px-1.5 text-gray-500" 
+                                name='password' value={values.password} onChange={handleChange} onBlur={handleBlur} />
+                                {errors.password && touched.password ? <p className='text-red-500 text-sm m-0.5'>{errors.password}</p> : null}
+                            </div>
+                            <div className="mb-3">
+                                <button type='submit' className="mb-1.5 block w-full text-center text-white bg-slate-700 hover:bg-slate-900 px-2 py-1.5 rounded-md">Login</button>
+                            </div>
+                        </form>
+                        <div className="text-center">
+                            <span className="text-xs text-gray-400 font-semibold">Don't have an account?</span>
+                            <Link to="/signup" className="text-xs font-semibold text-slate-700">Sign Up</Link>
+                        </div>
+                    </div>
+                </div>
+                <div className="hidden sm:flex bg-white flex-wrap content-center justify-center rounded-r-md" style={{ width: '24rem', height: '32rem' }}>
+                    <img className="w-full h-[80%] bg-center bg-no-repeat bg-cover rounded-r-md" src="https://img.freepik.com/free-vector/access-control-system-abstract-concept-vector-illustration-security-system-authorize-entry-login-credentials-electronic-access-password-passphrase-pin-verification-abstract-metaphor_335657-5746.jpg?w=740&t=st=1701424258~exp=1701424858~hmac=b66b75a3bff83174c95f51576dce7a45c1ebe32152a3954777191c76fe39a33f" alt="Login Banner" />
+                </div>
+                <Toaster />
+            </div>
+        </div>
+    );
+};
 
+export default Login;
