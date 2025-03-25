@@ -14,7 +14,7 @@ const Header = () => {
   const firebase = useFirebase()
   const location = useLocation()
   const [toggleSearch, setToggleSearch] = useState("top-0");
-  const searchArray = ["men shirts ", "cargo pants", "demin shirt", "checked shirt", "half sleeves", "printed shirt", "black cargo"]
+  
   const [toggleMenuOnMount, setToggleMenuOnMount] = useState(false);
   const closeMenu = () => {
     setIsOpen(false);
@@ -190,15 +190,45 @@ const Header = () => {
                 </div>
 
               </div>
-              <div className=" pt-4 my-2  border-t gap-3 overscroll-x-auto sm:scroll-hidden flex justify-center item-center">
-                <Link className="sm:mx-4 ml-2 text-nowrap text-sm leading-5 text-gray-700 transition-colors duration-300 transform  hover:text-blue-600 dark:hover:text-blue-400 hover:underline md:my-0" to="/shopping/floor">Floor</Link>
-                <Link className="sm:mx-4 ml-2 text-sm text-nowrap leading-5 text-gray-700 transition-colors duration-300 transform  hover:text-blue-600 whitespace-nowrap dark:hover:text-blue-400 hover:underline md:my-0" to="/shopping/wall">Wall</Link>
-                <Link className="sm:mx-4 ml-2 text-sm  text-nowrap leading-5 text-gray-700 transition-colors duration-300 transform  hover:text-blue-600 dark:hover:text-blue-400 hover:underline md:my-0" to="/shopping/stairs">Stairs</Link>
-                <Link className="sm:mx-4 ml-2 text-sm  text-nowrap leading-5 text-gray-700 transition-colors duration-300 transform  hover:text-blue-600 dark:hover:text-blue-400 hover:underline md:my-0" to="/shopping/marbles">Marbles</Link>
-                <Link className="sm:mx-4 ml-2 text-sm text-nowrap  leading-5 text-gray-700 transition-colors duration-300 transform  hover:text-blue-600 dark:hover:text-blue-400 hover:underline md:my-0" to="/shopping/temples">Temples</Link>
-                <Link className="sm:mx-4 ml-2 text-sm text-nowrap  leading-5 text-gray-700 transition-colors duration-300 transform  hover:text-blue-600 dark:hover:text-blue-400 hover:underline md:my-0" to="/shopping/tables">Tables</Link>
-              </div>
-            </div>
+              <div className="pt-4 my-2 border-t gap-2 overflow-x-auto flex justify-center items-center">
+  <Link
+    className="sm:mx-2 ml-1 text-nowrap text-sm leading-5 text-gray-700 transition-colors duration-300 transform hover:text-blue-600 dark:hover:text-blue-400 hover:underline"
+    to="/shopping/floor"
+  >
+    Floor
+  </Link>
+  <Link
+    className="sm:mx-2 ml-1 text-nowrap text-sm leading-5 text-gray-700 transition-colors duration-300 transform hover:text-blue-600 dark:hover:text-blue-400 hover:underline"
+    to="/shopping/wall"
+  >
+    Wall
+  </Link>
+  <Link
+    className="sm:mx-2 ml-1 text-nowrap text-sm leading-5 text-gray-700 transition-colors duration-300 transform hover:text-blue-600 dark:hover:text-blue-400 hover:underline"
+    to="/shopping/stairs"
+  >
+    Stairs
+  </Link>
+  <Link
+    className="sm:mx-2 ml-1 text-nowrap text-sm leading-5 text-gray-700 transition-colors duration-300 transform hover:text-blue-600 dark:hover:text-blue-400 hover:underline"
+    to="/shopping/marbles"
+  >
+    Marbles
+  </Link>
+  <Link
+    className="sm:mx-2 ml-1 text-nowrap text-sm leading-5 text-gray-700 transition-colors duration-300 transform hover:text-blue-600 dark:hover:text-blue-400 hover:underline"
+    to="/shopping/temples"
+  >
+    Temples
+  </Link>
+  <Link
+    className="sm:mx-2 ml-1 text-nowrap text-sm leading-5 text-gray-700 transition-colors duration-300 transform hover:text-blue-600 dark:hover:text-blue-400 hover:underline"
+    to="/shopping/tables"
+  >
+    Tables
+  </Link>
+</div>
+</div>
           </nav>
         )
       }
@@ -209,3 +239,4 @@ const Header = () => {
 };
 
 export default Header;
+

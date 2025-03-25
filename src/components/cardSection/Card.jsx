@@ -94,3 +94,117 @@ const ProductCard = ({ thumbnail, title, price,price2=999, id, width = "1/5", is
 };
 
 export default ProductCard;
+// import toast, { Toaster } from "react-hot-toast";
+// import React, { useState } from "react";
+// import { IoMdHeart } from "react-icons/io";
+// import { useNavigate } from "react-router-dom";
+// import { useFirebase } from "../../firebase/FirebaseContext";
+
+// const ProductCard = ({
+//   thumbnail,
+//   title,
+//   price,
+//   id,
+//   width = "1/4", // Updated for better responsiveness
+//   isWish = false,
+//   setWish,
+// }) => {
+//   const [color, setColor] = useState("slate");
+//   const { addToWishlist } = useFirebase();
+//   const navigate = useNavigate();
+
+//   const addItemToCart = () => {
+//     const currCart = {
+//       thumbnail,
+//       title,
+//       price,
+//       id,
+//     };
+//     addToWishlist(currCart);
+//   };
+
+//   const toggleColor = () => {
+//     if (color !== "red") {
+//       addItemToCart();
+//     }
+//     setColor("red");
+//   };
+
+//   const handleRemove = () => {
+//     const data = localStorage.getItem("wishlist");
+
+//     if (!data) return;
+
+//     const parsedData = JSON.parse(data);
+//     const updatedData = parsedData.filter((item) => item.id !== id);
+//     setWish(updatedData);
+
+//     localStorage.setItem("wishlist", JSON.stringify(updatedData));
+//     addToWishlist();
+//   };
+
+//   const truncateText = (text, maxLength) => {
+//     const words = text.split(" ");
+//     const truncated = words.slice(0, maxLength).join(" ");
+//     return words.length > maxLength ? `${truncated}...` : truncated;
+//   };
+
+//   return (
+//     <div className="w-full max-w-xs mx-auto sm:w-auto h-auto p-4 mt-4 rounded-lg border border-gray-200 bg-white hover:shadow-2xl transition-all duration-500">
+//       {/* Image Section */}
+//       <div className="relative w-full aspect-w-1 aspect-h-1 overflow-hidden rounded-lg group">
+//         <img
+//           className="w-full h-full object-contain transform transition-transform duration-500 group-hover:scale-110"
+//           src={thumbnail}
+//           alt={title}
+//         />
+//         {!isWish && (
+//           <div className="absolute top-3 right-3 rounded-full h-8 w-8 flex justify-center items-center bg-white shadow-md">
+//             <IoMdHeart
+//               className={`text-xl cursor-pointer text-${color}-600`}
+//               onClick={toggleColor}
+//             />
+//           </div>
+//         )}
+//       </div>
+
+//       {/* Title Section */}
+//       <div className="text-gray-800 font-medium mt-2 text-sm sm:text-base text-center">
+//         {truncateText(title, 3)}
+//       </div>
+
+//       {/* Price Section */}
+//       <div className="flex justify-between items-center mt-2">
+//         <p className="text-lg font-bold text-gray-900">₹{price}</p>
+//       </div>
+
+//       {/* Buttons Section */}
+//       {isWish ? (
+//         <div className="flex flex-col sm:flex-row gap-2 mt-3">
+//           <button
+//             className="w-full sm:w-1/2 text-xs font-medium p-2 border text-red-600 border-red-600 rounded-lg hover:bg-red-600 hover:text-white transition duration-300"
+//             onClick={handleRemove}
+//           >
+//             Remove
+//           </button>
+//           <button
+//             className="w-full sm:w-1/2 text-xs font-medium p-2 border bg-gray-900 text-white rounded-lg hover:bg-gray-700 transition duration-300"
+//             onClick={() => navigate(`/item-details/${id}`)}
+//           >
+//             View Details
+//           </button>
+//         </div>
+//       ) : (
+//         <button
+//           className="w-full mt-3 text-xs font-medium p-2 border bg-gray-900 text-white rounded-lg hover:bg-gray-700 transition duration-300"
+//           onClick={() => navigate(`/item-details/${id}`)}
+//         >
+//           View Details
+//         </button>
+//       )}
+//       <Toaster />
+//     </div>
+//   );
+// };
+
+// export default ProductCard;
