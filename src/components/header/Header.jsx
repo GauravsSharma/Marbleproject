@@ -74,7 +74,7 @@ const Header = () => {
                       <img className="sm:min-w-[7rem] w-[6rem] h-8 sm:h-8" src={Logo} alt="caralogo" />
                     </Link>
                     <div className={`sm:mx-5 sm:mr-2 bg-white sm:relative absolute duration-500 ${toggleSearch} -z-10 w-full left-0 px-2 sm:z-50 block `}>
-                     
+
                     </div>
 
                   </div>
@@ -83,14 +83,14 @@ const Header = () => {
                     <div className="flex sm:ml-6 gap-3 sm:flex justify-center items-center">
                       <IoSearch className='text-[27px] cursor-pointer' onClick={toggleSearchMenu} />
                       <div className='relative'>
-                   <Link to="/fiveinone/wishlist"  ><FaRegHeart className='text-2xl cursor-pointer' /></Link>
-                   <div className=' p-[6px] h-2 w-2 rounded-full bg-red-500 border-white absolute top-0 -right-1 flex justify-center items-center text-[10px] text-white'>{firebase.lengthOfWishlist}</div>
-                   </div>
-                    <div className='relative'>
-                    <Link to="/checkout/cart" ><FiShoppingCart className='text-2xl cursor-pointer mr-2' />
-                    </Link>
-                    <div className=' p-[6px] h-2 w-2 rounded-full bg-red-500 border-white absolute top-0 right-1 flex justify-center items-center text-[10px] text-white'>{firebase.lengthOfCart}</div>
-                    </div>
+                        <Link to="/fiveinone/wishlist"  ><FaRegHeart className='text-2xl cursor-pointer' /></Link>
+                        <div className=' p-[6px] h-2 w-2 rounded-full bg-red-500 border-white absolute top-0 -right-1 flex justify-center items-center text-[10px] text-white'>{firebase.lengthOfWishlist}</div>
+                      </div>
+                      <div className='relative'>
+                        <Link to="/checkout/cart" ><FiShoppingCart className='text-2xl cursor-pointer mr-2' />
+                        </Link>
+                        <div className=' p-[6px] h-2 w-2 rounded-full bg-red-500 border-white absolute top-0 right-1 flex justify-center items-center text-[10px] text-white'>{firebase.lengthOfCart}</div>
+                      </div>
                     </div>
                     <button
                       onClick={toggleMenu}
@@ -118,7 +118,7 @@ const Header = () => {
                     >
                       Home
                     </Link>
-                    
+
                     <Link
                       to="/about"
                       className="my-2 text-base leading-5 text-gray-700 transition-colors duration-300 transform hover:text-blue-600 hover:underline md:mx-4 md:my-1"
@@ -151,16 +151,16 @@ const Header = () => {
                     )}
                   </div>
                   <div className="sm:ml-6 gap-4 sm:flex justify-center items-center hidden">
-                   <div className='relative'>
-                   <Link to="/fiveinone/wishlist"  ><FaRegHeart className='text-2xl cursor-pointer' /></Link>
-                   <div className=' p-[6px] h-2 w-2 rounded-full bg-red-500 border-white absolute top-0 -right-1 flex justify-center items-center text-[10px] text-white'>{firebase.lengthOfWishlist}</div>
-                   </div>
                     <div className='relative'>
-                    <Link to="/checkout/cart" ><FiShoppingCart className='text-2xl cursor-pointer' />
-                    </Link>
-                    <div className=' p-[6px] h-2 w-2 rounded-full bg-red-500 border-white absolute top-0 -right-1 flex justify-center items-center text-[10px] text-white'>{firebase.lengthOfCart}</div>
+                      <Link to="/fiveinone/wishlist"  ><FaRegHeart className='text-2xl cursor-pointer' /></Link>
+                      <div className=' p-[6px] h-2 w-2 rounded-full bg-red-500 border-white absolute top-0 -right-1 flex justify-center items-center text-[10px] text-white'>{firebase.lengthOfWishlist}</div>
                     </div>
-                    <Link to="/fiveinone/profile"><div className ="profile hidden sm:block w-7 h-7 bg-slate-600 rounded-full overflow-hidden">
+                    <div className='relative'>
+                      <Link to="/checkout/cart" ><FiShoppingCart className='text-2xl cursor-pointer' />
+                      </Link>
+                      <div className=' p-[6px] h-2 w-2 rounded-full bg-red-500 border-white absolute top-0 -right-1 flex justify-center items-center text-[10px] text-white'>{firebase.lengthOfCart}</div>
+                    </div>
+                    <Link to="/fiveinone/profile"><div className="profile hidden sm:block w-7 h-7 bg-slate-600 rounded-full overflow-hidden">
                       <img src={url} alt="user-image" className='' />
                     </div>
                     </Link>
@@ -168,45 +168,45 @@ const Header = () => {
                 </div>
 
               </div>
-              <div className="pt-4 my-2 border-t gap-2 overflow-x-auto flex justify-center items-center">
-  <Link
-    className="sm:mx-2 ml-1 text-nowrap text-sm leading-5 text-gray-700 transition-colors duration-300 transform hover:text-blue-600 dark:hover:text-blue-400 hover:underline"
-    to="/shopping/floor"
-  >
-    Floor
-  </Link>
-  <Link
-    className="sm:mx-2 ml-1 text-nowrap text-sm leading-5 text-gray-700 transition-colors duration-300 transform hover:text-blue-600 dark:hover:text-blue-400 hover:underline"
-    to="/shopping/wall"
-  >
-    Wall
-  </Link>
-  <Link
-    className="sm:mx-2 ml-1 text-nowrap text-sm leading-5 text-gray-700 transition-colors duration-300 transform hover:text-blue-600 dark:hover:text-blue-400 hover:underline"
-    to="/shopping/stairs"
-  >
-    Stairs
-  </Link>
-  <Link
-    className="sm:mx-2 ml-1 text-nowrap text-sm leading-5 text-gray-700 transition-colors duration-300 transform hover:text-blue-600 dark:hover:text-blue-400 hover:underline"
-    to="/shopping/marbles"
-  >
-    Marbles
-  </Link>
-  <Link
-    className="sm:mx-2 ml-1 text-nowrap text-sm leading-5 text-gray-700 transition-colors duration-300 transform hover:text-blue-600 dark:hover:text-blue-400 hover:underline"
-    to="/shopping/temples"
-  >
-    Temples
-  </Link>
-  <Link
-    className="sm:mx-2 ml-1 text-nowrap text-sm leading-5 text-gray-700 transition-colors duration-300 transform hover:text-blue-600 dark:hover:text-blue-400 hover:underline"
-    to="/shopping/tables"
-  >
-    Tables
-  </Link>
-</div>
-</div>
+              <div className="pt-4 my-2 border-t sm:gap-1 gap-2 overflow-x-auto flex justify-center items-center">
+                <Link
+                  className="sm:mx-2 ml-1 text-nowrap text-sm leading-5 text-gray-700 transition-colors duration-300 transform hover:text-blue-600 dark:hover:text-blue-400 hover:underline"
+                  to="/shopping/floor"
+                >
+                  Floor
+                </Link>
+                <Link
+                  className="sm:mx-2 ml-1 text-nowrap text-sm leading-5 text-gray-700 transition-colors duration-300 transform hover:text-blue-600 dark:hover:text-blue-400 hover:underline"
+                  to="/shopping/wall"
+                >
+                  Wall
+                </Link>
+                <Link
+                  className="sm:mx-2 ml-1 text-nowrap text-sm leading-5 text-gray-700 transition-colors duration-300 transform hover:text-blue-600 dark:hover:text-blue-400 hover:underline"
+                  to="/shopping/stairs"
+                >
+                  Stairs
+                </Link>
+                <Link
+                  className="sm:mx-2 ml-1 text-nowrap text-sm leading-5 text-gray-700 transition-colors duration-300 transform hover:text-blue-600 dark:hover:text-blue-400 hover:underline"
+                  to="/shopping/marbles"
+                >
+                  Marbles
+                </Link>
+                <Link
+                  className="sm:mx-2 ml-1 text-nowrap text-sm leading-5 text-gray-700 transition-colors duration-300 transform hover:text-blue-600 dark:hover:text-blue-400 hover:underline"
+                  to="/shopping/temples"
+                >
+                  Temples
+                </Link>
+                <Link
+                  className="sm:mx-2 ml-1 text-nowrap text-sm leading-5 text-gray-700 transition-colors duration-300 transform hover:text-blue-600 dark:hover:text-blue-400 hover:underline"
+                  to="/shopping/tables"
+                >
+                  Tables
+                </Link>
+              </div>
+            </div>
           </nav>
         )
       }
