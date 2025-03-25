@@ -4,7 +4,7 @@ import { IoMdHeart } from "react-icons/io";
 import { useNavigate } from 'react-router-dom';
 import { RiStarSFill } from "react-icons/ri";
 import { useFirebase } from '../../firebase/FirebaseContext';
-const ProductCard = ({ thumbnail, title, price,price2=999, id, width = "1/5", isWish = false, setWish}) => {
+const ProductCard = ({ thumbnail, title, price,price2=999, id, width = "20", isWish = false, setWish}) => {
    console.log(id,title);
    const [color, setColor] = useState("slate");
    const {addToWishlist,addToCart} = useFirebase()
@@ -62,9 +62,9 @@ const ProductCard = ({ thumbnail, title, price,price2=999, id, width = "1/5", is
 
    return (
       <>
-         <div className={` w-1/2 h-auto sm:w-${width} p-0 sm:p-2 mt-2 hover:border-1 hover:border-slate-500 hover:shadow-2xl shadow-lg`} >
+         <div className={` w-1/2 h-auto sm:w-60 p-0 sm:p-2 mt-2 hover:border-1 hover:border-slate-500 hover:shadow-2xl shadow-lg`} >
             <div className='w-full h-auto sm:h-[65%] relative object-contain hover:scale-105 duration-500'>
-               <img className='w-full h-full group' src={thumbnail} alt="" />
+               <img className='w-full h-56 group' src={thumbnail} alt="" />
                {
                   isWish ? null : <div className="top-4 right-4 absolute rounded-full h-[30px] w-[30px] flex justify-center items-center bg-white">
                      <IoMdHeart className={`text-xl cursor-pointer text-${color}-600`} onClick={toggleColor}/>

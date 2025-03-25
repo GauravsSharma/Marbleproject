@@ -7,7 +7,10 @@ import { useFirebase } from '../../../firebase/FirebaseContext';
 import { useEffect } from 'react';
 import { CgChevronUp } from "react-icons/cg";
 import toast, { Toaster } from 'react-hot-toast';
-const ProductReview = ({ productId }) => {
+import { useAppwrite } from '../../../appwrite/AppwriteContext';
+const ProductReview = ({ product,fetchData }) => {
+  // console.log(fetchData);
+  
   const [showAllReview, setShowAllReview] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const { getReviewDocument, user } = useFirebase()
@@ -20,29 +23,22 @@ const ProductReview = ({ productId }) => {
     const data = localStorage.getItem('user');
     return data ? JSON.parse(data) : null;
   })
-
+const {loggedInUser} = useAppwrite()
   const toggleModel = () => {
-    if (user) {
-      if (userInfo) {
-        console.log("toogle");
-        setIsOpen(!isOpen);
-      } else {
-        toast.error("Please complete your profile")
-      }
+    if (loggedInUser) {
+      setIsOpen(!isOpen);
     }
     else {
       toast.error("Please login first");
     }
   }
   const fetchDocument = async () => {
-    try {
-      const res = await getReviewDocument(productId);
-      console.log(res.docs);
-      seProductReviewDoc(res.docs);
-      const overallrating = calculateOverallRating(res.docs)
+    try {   
+      seProductReviewDoc(product?.reviews);
+      const overallrating = calculateOverallRating(product?.reviews)
       setOverallRating(overallrating)
-      countUsersArray(res.docs)
-      setLength(res.docs.length);
+      countUsersArray(product?.reviews)
+      setLength(product?.reviews?.length);
       // console.log("HE tried",length);
       return;
     } catch (error) {
@@ -51,10 +47,7 @@ const ProductReview = ({ productId }) => {
   }
 
   const calculateOverallRating = (docs) => {
-
-
-    const totalRatings = docs.reduce((sum, review) => sum + Number(review.data().rating), 0);
-    console.log("entered", totalRatings);
+    const totalRatings = docs.reduce((sum, review) => sum + Number(review.rating), 0);
     const averageRating = totalRatings / docs.length;
     return averageRating.toFixed(1); // Limit to one decimal place
   };
@@ -63,7 +56,7 @@ const ProductReview = ({ productId }) => {
 
     // Count users for each rating
     docs.forEach((review) => {
-      const rating = review.data().rating;
+      const rating = review.rating;
       ratingCounts[rating - 1]++; // Increment the count for the corresponding rating
     });
     setRatingArr(ratingCounts);
@@ -71,10 +64,7 @@ const ProductReview = ({ productId }) => {
   };
 
   const copyOfReviews = productReviewDoc.slice();
-  console.log(productReviewDoc);
-  console.log("cpy", copyOfReviews);
   const visibleReviews = copyOfReviews.splice(0, displayedReviews);
-  console.log("splic", visibleReviews);
 
   const handleButtonClick = () => {
     setShowAllReview(!showAllReview);
@@ -84,14 +74,14 @@ const ProductReview = ({ productId }) => {
   useEffect(() => {
     fetchDocument()
     // console.log(productReviewDoc)
-  }, [])
+  }, [product])
   // console.log(countUsersForRating(5))
   if (visibleReviews.length === 0) {
     return (
       <div className="box3  w-full h-auto py-10 flex justify-center items-center flex-col gap-5 px-5">
         <h1 className='text-2xl text-center font-semibold text-slate-600'>There is no reviews yet</h1>
         <div className='cursor-pointer py-4 text-white px-2 bg-red-600 rounded-md w-full sm:w-[20%] text-xs font-bold hover:shadow-xl hover:shadow-red-100 duration-500 text-center' onClick={toggleModel}>WRITE A PRODUCT REVIEW</div>
-        <GetReviewsModel isOpen={isOpen} toggleModel={toggleModel} productId={productId} fetchDocument={fetchDocument} />
+        <GetReviewsModel isOpen={isOpen} toggleModel={toggleModel} product={product} fetchData={fetchData} />
       </div>
     )
   }
@@ -118,7 +108,7 @@ const ProductReview = ({ productId }) => {
             <div className='flex flex-col gap-5 duration-500'>
               {
                 visibleReviews?.map((user) => (
-                  <CustomerReviewCard key={user.id} rating={user.data().rating} reviewDescription={user.data().reviewDescription} reviewTitle={user.data().reviewTitle} date={user.data().currentDate} userName={user.data().userName} />
+                  <CustomerReviewCard key={user.$id} rating={user.rating} reviewDescription={user.description} reviewTitle={user.title} date={user.date} userName={user.username} />
                 ))
               }
               {
@@ -131,7 +121,7 @@ const ProductReview = ({ productId }) => {
           <div className="box3  w-full sm:w-[20%]">
             <div className='cursor-pointer py-4 text-white px-2 bg-red-600 rounded-md w-full sm:w-[70%] text-xs font-bold hover:shadow-xl hover:shadow-red-100 duration-500 text-center' onClick={toggleModel}>WRITE A PRODUCT REVIEW</div>
           </div>
-          <GetReviewsModel isOpen={isOpen} toggleModel={toggleModel} productId={productId} fetchDocument={fetchDocument} />
+          <GetReviewsModel isOpen={isOpen} toggleModel={toggleModel} product={product} fetchData={fetchData} />
           <Toaster />
         </div>
       }

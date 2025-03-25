@@ -16,8 +16,7 @@ const Header = () => {
   const firebase = useFirebase()
   const location = useLocation()
   const [toggleSearch, setToggleSearch] = useState("top-0");
-  const searchArray = ["men shirts ", "cargo pants", "demin shirt", "checked shirt", "half sleeves", "printed shirt", "black cargo"]
-  const closeMenu = () => {
+   const closeMenu = () => {
     setIsOpen(false);
   };
   console.log(appwrite.loggedInUser);
@@ -172,10 +171,10 @@ const Header = () => {
               <div className=" pt-4 my-2  border-t gap-3 overscroll-x-auto sm:scroll-hidden flex justify-center item-center">
                 <Link className="sm:mx-4 ml-2 text-nowrap text-sm leading-5 text-gray-700 transition-colors duration-300 transform  hover:text-blue-600 dark:hover:text-blue-400 hover:underline md:my-0" to="/shopping/floor">Floor</Link>
                 <Link className="sm:mx-4 ml-2 text-sm text-nowrap leading-5 text-gray-700 transition-colors duration-300 transform  hover:text-blue-600 whitespace-nowrap dark:hover:text-blue-400 hover:underline md:my-0" to="/shopping/wall">Wall</Link>
-                <Link className="sm:mx-4 ml-2 text-sm  text-nowrap leading-5 text-gray-700 transition-colors duration-300 transform  hover:text-blue-600 dark:hover:text-blue-400 hover:underline md:my-0" to="/shopping/stairs">Stairs</Link>
-                <Link className="sm:mx-4 ml-2 text-sm  text-nowrap leading-5 text-gray-700 transition-colors duration-300 transform  hover:text-blue-600 dark:hover:text-blue-400 hover:underline md:my-0" to="/shopping/marbles">Marbles</Link>
-                <Link className="sm:mx-4 ml-2 text-sm text-nowrap  leading-5 text-gray-700 transition-colors duration-300 transform  hover:text-blue-600 dark:hover:text-blue-400 hover:underline md:my-0" to="/shopping/temples">Temples</Link>
-                <Link className="sm:mx-4 ml-2 text-sm text-nowrap  leading-5 text-gray-700 transition-colors duration-300 transform  hover:text-blue-600 dark:hover:text-blue-400 hover:underline md:my-0" to="/shopping/tables">Tables</Link>
+                <Link className="sm:mx-4 ml-2 text-sm  text-nowrap leading-5 text-gray-700 transition-colors duration-300 transform  hover:text-blue-600 dark:hover:text-blue-400 hover:underline md:my-0" to="/shopping/stair">Stairs</Link>
+                <Link className="sm:mx-4 ml-2 text-sm  text-nowrap leading-5 text-gray-700 transition-colors duration-300 transform  hover:text-blue-600 dark:hover:text-blue-400 hover:underline md:my-0" to="/shopping/marble">Marbles</Link>
+                <Link className="sm:mx-4 ml-2 text-sm text-nowrap  leading-5 text-gray-700 transition-colors duration-300 transform  hover:text-blue-600 dark:hover:text-blue-400 hover:underline md:my-0" to="/shopping/temple">Temples</Link>
+                <Link className="sm:mx-4 ml-2 text-sm text-nowrap  leading-5 text-gray-700 transition-colors duration-300 transform  hover:text-blue-600 dark:hover:text-blue-400 hover:underline md:my-0" to="/shopping/table">Tables</Link>
               </div>
             </div>
           </nav>

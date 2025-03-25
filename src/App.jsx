@@ -41,7 +41,7 @@ const App = () => {
         <Route path='/checkout/cart' element={<CartPage setNav={setNav} setFoot={setFoot}/>}/>
         <Route path="/fiveinone" element={<FiveInOneLayout  setNav={setNav} setFoot={setFoot}/>}>
           <Route path='wishlist' element={<WishList setNav={setNav} setFoot={setFoot}/>}/>
-          <Route path='orders' element={<Orders setNav={setNav} setFoot={setFoot}/>}/>
+          <Route path='orderss' element={<Orders setNav={setNav} setFoot={setFoot}/>}/>
           <Route path='address' element={<Address setNav={setNav} setFoot={setFoot}/>}/>
           <Route path='profile' element={<Profile setNav={setNav} setFoot={setFoot}/>}/>
         </Route>
