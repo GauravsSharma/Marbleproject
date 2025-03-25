@@ -59,48 +59,84 @@ const Home = ({ setFoot, setNav }) => {
             <h1 className=' text-xl sm:text-2xl  text-center my-1'>MARBLE DESIGN'S</h1>
             <p className='sm:text-base text-sm text-slate-400 text-center mb-7'>Upgrade your home, temple and your environment with our new fresh designs</p>
             <div className='flex flex-col justify-center gap-2 sm:gap-12 items-center sm:flex-row '>
-              <Img className="h-[80%] sm:h-96 object-cover" src="image1.jpg" alt=""   textLines={["Temple Marbles", ]}/>
-              <Img className="h-[80%] sm:h-96 object-cover" src="image2.jpg" alt="" textLines={["Marbles"]} />
+              <Img className="h-[80%] sm:h-96 object-cover" src="image1.jpg" alt=""   textLines={["Tables Marbles", ]}/>
+              <Img className="h-[80%] sm:h-96 object-cover" src="image2.jpg" alt="" textLines={["Floor Marbles"]} />
             </div>
           </div>
-          <div className='p-5 sm:py-10 sm:px-20'>
-            <h1 className=' text-xl sm:text-2xl  text-center my-1'>Explore Products</h1>
-            <p className='sm:text-base text-sm text-slate-400 text-center mb-7'>Select category</p>
-            <div className="flex justify-between mt-10 flex-wrap w-full">
-              <Link to="/shopping/shirts" className='w-1/2 sm:w-44 h-52'>
-                <div className="rounded-xl h-full w-full sm:my-0 my-2 sm:w-44 hover:scale-110 hover:shadow-2xl duration-700 shadow-lg">
-                  <img src="https://i.pinimg.com/736x/58/ff/89/58ff89a0f9072e966ab97e1bf04477ac.jpg" style={{ height: '80%', width: '100%', objectFit: "cover" }} />
-                  <h1 className='font-bold text-lg text-center h-[20%] p-2'>Floor Marbles</h1>
-                </div></Link>
-              <Link to="/shopping/pants" className='w-1/2 sm:w-44 h-52'> <div className="rounded-xl h-full w-full sm:w-44 sm:my-0 my-2 hover:scale-110 hover:shadow-2xl duration-700 shadow-lg">
-                <img src="https://5.imimg.com/data5/SELLER/Default/2024/1/377927411/TB/EB/BB/205411933/wall-inlay-9-500x500.jpg" style={{ height: '80%', width: '100%', objectFit: "cover" }} />
-                <h1 className='font-bold text-lg text-center h-[20%] p-2'>Wall Marbles</h1>
-              </div></Link>
-              <Link to="/shopping/jackets" className='w-1/2 sm:w-44 h-52'>
-                <div className="rounded-xl h-full w-full sm:w-44 sm:my-0 my-2 hover:scale-110 hover:shadow-2xl duration-700 shadow-lg">
-                  <img src="https://5.imimg.com/data5/SELLER/Default/2024/3/397669384/EH/IJ/NW/22937853/marble-staircase-design.jpg" style={{ height: '80%', width: '100%', objectFit: "cover" }} />
-                  <h1 className='font-bold text-lg text-center h-[20%] p-2'>Stairs Marbles</h1>
-                </div></Link>
-              <Link to="/shopping/coorders" className='w-1/2 sm:w-44 h-52'>
-                <div className="rounded-xl h-full w-full sm:w-44 sm:my-0 my-2 hover:scale-110 hover:shadow-2xl duration-700 shadow-lg">
-                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBAXHptdNP8yZuSew8-D7DBg28QD-l2qJ5HA&s" style={{ height: '80%', width: '100%', objectFit: "cover" }} />
-                  <h1 className='font-bold text-lg text-center h-[20%] p-2'>Temple Marbles</h1>
-                </div>
-              </Link>
-              <Link to="/shopping/t-shirts" className='w-1/2 sm:w-44 h-52'>
-                <div className="rounded-xl h-full w-full sm:w-44 sm:my-0 my-2 hover:scale-110 hover:shadow-2xl duration-700 shadow-lg">
-                  <img src="https://media-cdn.tripadvisor.com/media/photo-s/1c/b6/91/eb/marble-handicrafts-in.jpg" style={{ height: '80%', width: '100%', objectFit: "cover" }} />
-                  <h1 className='font-bold text-lg text-center h-[20%] p-2'>Marbles</h1>
-                </div>
-              </Link>
-              <Link to="/shopping/shirts" className='w-1/2 sm:w-44 h-52'>
-                <div className="rounded-xl h-full w-full sm:w-44 sm:my-0 my-2 hover:scale-110 hover:shadow-2xl duration-700 shadow-lg">
-                  <img src="https://i.etsystatic.com/29921540/r/il/d27a22/4191437150/il_570xN.4191437150_93ew.jpg" style={{ height: '80%', width: '100%', objectFit: "cover" }} />
-                  <h1 className='font-bold text-lg text-center h-[20%] p-2'>Table Marbles</h1>
-                </div>
-              </Link>
-            </div>
-          </div>
+          <div className="p-5 sm:py-10 sm:px-20">
+  <h1 className="text-xl sm:text-2xl text-center my-1">Explore Products</h1>
+  <p className="sm:text-base text-sm text-slate-400 text-center mb-7">Select category</p>
+
+  {/* Responsive Grid with Fixed Card Sizes */}
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4 md:p-8">
+  <Link to="/shopping/floor">
+    <div className="rounded-xl overflow-hidden bg-white w-full h-[250px] sm:h-[300px] hover:scale-105 hover:shadow-2xl transition-transform duration-500 shadow-lg">
+      <img
+        src="https://i.pinimg.com/736x/58/ff/89/58ff89a0f9072e966ab97e1bf04477ac.jpg"
+        className="w-full h-[80%] object-cover"
+        alt="Floor Marbles"
+      />
+      <h1 className="font-bold text-lg text-center h-[20%] p-2">Floor Marbles</h1>
+    </div>
+  </Link>
+
+  <Link to="/shopping/wall">
+    <div className="rounded-xl overflow-hidden bg-white w-full h-[250px] sm:h-[300px] hover:scale-105 hover:shadow-2xl transition-transform duration-500 shadow-lg">
+      <img
+        src="https://5.imimg.com/data5/SELLER/Default/2024/1/377927411/TB/EB/BB/205411933/wall-inlay-9-500x500.jpg"
+        className="w-full h-[80%] object-cover"
+        alt="Wall Marbles"
+      />
+      <h1 className="font-bold text-lg text-center h-[20%] p-2">Wall Marbles</h1>
+    </div>
+  </Link>
+
+  <Link to="/shopping/stairs">
+    <div className="rounded-xl overflow-hidden bg-white w-full h-[250px] sm:h-[300px] hover:scale-105 hover:shadow-2xl transition-transform duration-500 shadow-lg">
+      <img
+        src="https://5.imimg.com/data5/SELLER/Default/2024/3/397669384/EH/IJ/NW/22937853/marble-staircase-design.jpg"
+        className="w-full h-[80%] object-cover"
+        alt="Stairs Marbles"
+      />
+      <h1 className="font-bold text-lg text-center h-[20%] p-2">Stairs Marbles</h1>
+    </div>
+  </Link>
+
+  <Link to="/shopping/temple">
+    <div className="rounded-xl overflow-hidden bg-white w-full h-[250px] sm:h-[300px] hover:scale-105 hover:shadow-2xl transition-transform duration-500 shadow-lg">
+      <img
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBAXHptdNP8yZuSew8-D7DBg28QD-l2qJ5HA&s"
+        className="w-full h-[80%] object-cover"
+        alt="Temple Marbles"
+      />
+      <h1 className="font-bold text-lg text-center h-[20%] p-2">Temple Marbles</h1>
+    </div>
+  </Link>
+
+  <Link to="/shopping/marbles">
+    <div className="rounded-xl overflow-hidden bg-white w-full h-[250px] sm:h-[300px] hover:scale-105 hover:shadow-2xl transition-transform duration-500 shadow-lg">
+      <img
+        src="https://media-cdn.tripadvisor.com/media/photo-s/1c/b6/91/eb/marble-handicrafts-in.jpg"
+        className="w-full h-[80%] object-cover"
+        alt="Marbles"
+      />
+      <h1 className="font-bold text-lg text-center h-[20%] p-2">Marbles</h1>
+    </div>
+  </Link>
+
+  <Link to="/shopping/table">
+    <div className="rounded-xl overflow-hidden bg-white w-full h-[250px] sm:h-[300px] hover:scale-105 hover:shadow-2xl transition-transform duration-500 shadow-lg">
+      <img
+        src="https://i.etsystatic.com/29921540/r/il/d27a22/4191437150/il_570xN.4191437150_93ew.jpg"
+        className="w-full h-[80%] object-cover"
+        alt="Table Marbles"
+      />
+      <h1 className="font-bold text-lg text-center h-[20%] p-2">Table Marbles</h1>
+    </div>
+  </Link>
+</div>
+</div>
+
           {/* <div className='p-5 sm:p-20'>
             <img src="" alt="" />
           </div> */}

@@ -70,7 +70,7 @@ const Footer = () => {
         <hr className="h-px my-6 bg-gray-200 border-none"/>
 
         <div>
-          <p className="text-center text-gray-500">@Design and made by </p>
+          <p className="text-center text-gray-500">@2025 Design and made by AGS Web Designers😎</p>
         </div>
       </div>
     </footer>
