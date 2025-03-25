@@ -137,7 +137,7 @@ const Shopping = ({ setNav, setFoot }) => {
                 </div>
               </div>
             </>}
-        <div className='sm:hidden flex fixed bottom-0 h-14 bg-slate-50 w-full justify-between items-center'>
+        {/* <div className='sm:hidden flex fixed bottom-0 h-14 bg-slate-50 w-full justify-between items-center'>
           <div className="sort w-1/2 flex justify-center items-center">
             <TbArrowsSort className='mr-2' />
             <p className='text-base font-semibold text-red-500' onClick={() =>("top-0")}>SORT</p>
@@ -146,7 +146,7 @@ const Shopping = ({ setNav, setFoot }) => {
             <MdOutlineFilterList className='mr-2' />
             <p className='text-base font-semibold text-red-500' onClick={() =>("block")}>Filter</p>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
       <NewsLetter/>

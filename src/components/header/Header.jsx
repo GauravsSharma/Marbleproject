@@ -183,25 +183,25 @@ const Header = () => {
                 </Link>
                 <Link
                   className="sm:mx-2 ml-1 text-nowrap text-sm leading-5 text-gray-700 transition-colors duration-300 transform hover:text-blue-600 dark:hover:text-blue-400 hover:underline"
-                  to="/shopping/stairs"
+                  to="/shopping/stair"
                 >
                   Stairs
                 </Link>
                 <Link
                   className="sm:mx-2 ml-1 text-nowrap text-sm leading-5 text-gray-700 transition-colors duration-300 transform hover:text-blue-600 dark:hover:text-blue-400 hover:underline"
-                  to="/shopping/marbles"
+                  to="/shopping/marble"
                 >
                   Marbles
                 </Link>
                 <Link
                   className="sm:mx-2 ml-1 text-nowrap text-sm leading-5 text-gray-700 transition-colors duration-300 transform hover:text-blue-600 dark:hover:text-blue-400 hover:underline"
-                  to="/shopping/temples"
+                  to="/shopping/temple"
                 >
                   Temples
                 </Link>
                 <Link
                   className="sm:mx-2 ml-1 text-nowrap text-sm leading-5 text-gray-700 transition-colors duration-300 transform hover:text-blue-600 dark:hover:text-blue-400 hover:underline"
-                  to="/shopping/tables"
+                  to="/shopping/table"
                 >
                   Tables
                 </Link>
