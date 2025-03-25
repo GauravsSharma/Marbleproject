@@ -21,39 +21,37 @@ const ItemDetail = ({ setNav, setFoot }) => {
     const firebase = useFirebase();
     const { id } = useParams();
     const [productCarouselShow,setProductCarouselShow] = useState(false);
-    // console.log(id);
+    const fetchData = async () => {
+        setLoading(true)
+        try {
+            console.log("called fetch data")
+            const res = await appwrite.getDocumentById(id);  
+            fetchData2(res)
+            setObj(res);
+            setImgArr(res?.thumbnail || []);
+            setLoading(false);
+            return data;
+        } catch (error) {
+            console.error("Error fetching data:", error);
+            setLoading(false);
+        }
+    };
+    const fetchData2 = async (obj) => { 
+        try {
+            console.log("I was calling but....");
+            const res = await appwrite.getDocumentsByQuery(obj.category);
+            setData(res.documents);
+        } catch (error) {
+            console.error("Error fetching data:", error);
+        }
+    };
     useEffect(() => {
         // localStorage.removeItem("cart");
         const storedCart = localStorage.getItem('cart');
         if (storedCart) {
             setCarts(JSON.parse(storedCart));
         }
-        const fetchData = async () => {
-            setLoading(true)
-            try {
-                const res = await appwrite.getDocumentById(id);  
-                setObj(res);
-                setImgArr(res?.thumbnail || []);
-                setLoading(false);
-                return data;
-            } catch (error) {
-                console.error("Error fetching data:", error);
-                setLoading(false);
-            }
-        };
-        const fetchData2 = async (obj) => {
-            try {
-                const res = await firebase.getDocuments(obj.category);
-                const data = res.docs;
-                // console.log(data);
-                setData(data);
-            } catch (error) {
-                console.error("Error fetching data:", error);
-            }
-        };
-
         fetchData()
-            .then((res) => fetchData2(res));
         setFoot(true);
         setNav(true);
 
@@ -107,31 +105,19 @@ const ItemDetail = ({ setNav, setFoot }) => {
                         <section id="prodetails" className=" p-5 sm:px-10 flex flex-col sm:flex-row w-full  items-center h-[70%]">
                             <div className='h-full w-full sm:w-[35%] flex justify-center items-center sm:gap-2 flex-col-reverse sm:flex-row '>
                                 <div className='flex gap-1 justify-center items-center flex-row sm:flex-col w-full sm:w-[20%] mt-1'>
-                                    {/* {
-                                        imgArr?.length > 0 && imgArr.map((img, index) => {
-                                            return (<img key={index} src={img} className='hover:scale-105 duration-500 sm:w-full w-[25%]' onClick={() => handleImgChange(img)} />)
-                                        })
-                                    } */}
+                                   
                                 </div>
                                 <img src={imgArr} className='w-full sm:w-[80%] h-full cursor-pointer' onClick={()=>setProductCarouselShow(true)}/>
                             </div>
                             <div className=" w-full sm:w-[65%] mt-7 sm:px-12 pt-30">
-                                {/* <h6 className="text-xl font-semibold my-2">Home / {obj?.category}</h6> */}
+                               
                                 <h4 className="sm:text-3xl text-2xl my-1">{obj?.title}</h4>
                                 <div className='flex justify-start items-center'>
                                     <h2 className="text-2xl my-1 font-semibold">₹{obj?.price}</h2>
-                                    {/* <s className='mr-1 text-slate-400 mx-2 text-xl'>₹{3993}</s> */}
-                                    {/* <p className="font-bold my-1 text-green-600 text-xl">({Math.round(discountPercentage)}% off)</p> */}
+                
                                 </div>
                                 <p className='text-slate-400 font-bold'>Free size</p>
-                                {/* <select className="block py-2 px-4 mb-4 bg-white border border-gray-300 focus:outline-none" onClick={(e)=>setSize(e.target.value)}>
-                                    <option>Select Size</option>
-                                    <option value="xl">XL</option>
-                                    <option value="xxl">XXL</option>
-                                    <option value="small">Small</option>
-                                    <option value="large">Large</option>
-                                </select> */}
-                                {/* <input type="number" value={qty} className="focus:outline-none w-14 border border-1 mr-3 p-2" onChange={(e) => setQty(e.target.value)} /> */}
+                            
                                 <div className='flex sm:my-2  left-0 bg-white sm:shadow-sm shadow-2xl p-1 gap-1 w-full z-10 fixed sm:relative bottom-0'>
                                     <button className=' w-1/2 p-3 gap-2 text-base sm:relative sm:w-1/4 sm:p-2 bg-white text-black border hover:bg-slate-600  duration-500 border-slate-800 hover:text-white flex justify-center items-center rounded-md font-semibold ' onClick={() => {
                                         firebase.addToWishlist({
@@ -154,7 +140,7 @@ const ItemDetail = ({ setNav, setFoot }) => {
                                 }</span>
                             </div>
                         </section>
-                        <ProductReviewMemoized productId={id} />
+                        <ProductReviewMemoized product={obj} fetchData={fetchData}/>
                         <CardSection data={data} heading={"Similar Products"} subHead={"You may also like"} />
                         <Toaster />
                     </div>

@@ -2,7 +2,11 @@ import React from 'react'
 import { IoStar } from "react-icons/io5";
 import { MdVerified } from "react-icons/md";
 const CustomerReviewCard = ({reviewTitle,reviewDescription,rating,date,userName="user"}) => {
-  // console.log(reviewDiscription);
+  function formatDate(inputDate) {
+    const date = new Date(inputDate);
+    return date.toISOString().split("T")[0];  // Extracts only YYYY-MM-DD
+}
+
   return (
     <div className="card w-full h-auto pb-3 border-b-2">
     <div className='flex items-center'>
@@ -18,8 +22,8 @@ const CustomerReviewCard = ({reviewTitle,reviewDescription,rating,date,userName=
     </div>
     <div className='flex justify-start items-center'>
       <span className='text-xs text-slate-500 mr-4'>{userName}</span>
-      <span className='text-xs hidden sm:block text-slate-400 mr-4'> <MdVerified  className='inline-block text-base'/>Certified Buyer, Howrah</span>
-      <span className='text-xs text-slate-400 mr-4'>{date}</span>
+      <span className='text-xs hidden sm:block text-slate-400 mr-4'> <MdVerified  className='inline-block text-base'/>Certified Buyer</span>
+      <span className='text-xs text-slate-400 mr-4'>{formatDate(date)}</span>
     </div>
  </div>
   )

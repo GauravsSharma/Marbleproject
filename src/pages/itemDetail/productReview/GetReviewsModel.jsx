@@ -6,16 +6,19 @@ import * as Yup from 'yup'
 import { useFirebase } from '../../../firebase/FirebaseContext';
 import toast ,{Toaster} from 'react-hot-toast'
 import { RxCross2 } from "react-icons/rx";
-const GetReviewsModel = ({ isOpen, toggleModel,productId,fetchDocument}) => {
+import { useAppwrite } from '../../../appwrite/AppwriteContext';
+const GetReviewsModel = ({ isOpen, toggleModel,product,fetchData}) => {
+  // console.log(fetchData);
+  
   const [rating, setRating] = useState(1);
   const [selectedImages, setSelectedImages] = useState([]);
   const [imagesForDb, setImagesForDb] = useState([]);
   const firebase = useFirebase()
+  const {loggedInUser,addReview} = useAppwrite()
   const [userInfo,setUserInfo] = useState(()=>{
     const data = localStorage.getItem('user');
     return data?JSON.parse(data):"user";
   })
-  console.log(userInfo);
   const initialValues = {
     reviewTitle: "",
     reviewDiscription:""
@@ -24,6 +27,12 @@ const GetReviewsModel = ({ isOpen, toggleModel,productId,fetchDocument}) => {
     reviewTitle:Yup.string().min(6).required("*Please enter the title"),
     reviewDiscription: Yup.string().min(20).required("*Please enter the discription"),
 })
+function getFormattedDate() {
+  return new Date().toISOString();  // Returns in Appwrite-compatible format
+}
+
+// console.log(getFormattedDate());
+
   const handleRatingChange = (newRating) => {
     setRating(newRating);
   };
@@ -53,10 +62,15 @@ const GetReviewsModel = ({ isOpen, toggleModel,productId,fetchDocument}) => {
     validationSchema:reviewScehma,
     onSubmit: async (values, action) => {
       try {
-        const addReviewPromise = imagesForDb.length > 0
-          ? firebase.addReviewForProduct(userInfo.fullName,productId, rating, values.reviewDiscription, values.reviewTitle, imagesForDb)
-          : firebase.addReviewForProduct(userInfo.fullName,productId, rating, values.reviewDiscription, values.reviewTitle);
-    
+      const review = {
+       username:loggedInUser.name,
+       productId:product.$id,
+       date:getFormattedDate(),
+       title:values.reviewTitle,
+       description:values.reviewDiscription,
+       rating
+      }
+      const addReviewPromise = addReview(review,product)
         await toast.promise(addReviewPromise, {
           loading: 'Loading',
           success: 'Thanks for giving a review',
@@ -65,9 +79,9 @@ const GetReviewsModel = ({ isOpen, toggleModel,productId,fetchDocument}) => {
     
         action.resetForm();
         toggleModel();
-        fetchDocument()
+        fetchData()
       } catch (error) {
-        console.error('Error in form submission:', error);
+        console.log('Error in form submission:', error);
         // Handle error if needed
         toast.error('Something went wrong');
       }

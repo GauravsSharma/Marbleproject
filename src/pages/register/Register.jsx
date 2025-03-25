@@ -52,7 +52,7 @@ const Register = ({setFoot,setNav}) => {
         <div className="flex flex-wrap content-center justify-center rounded-l-md bg-white" style={{ width: '24rem', height: '32rem' }}>
             <div className="w-72">
                 {/* Heading */}
-                <h1 className="text-xl font-semibold">Wellcome To Cara</h1>
+                <h1 className="text-xl font-semibold">Welcome To Marble Inlay</h1>
                 <small className="text-gray-400">Please enter your details</small>
 
                 {/* Form */}

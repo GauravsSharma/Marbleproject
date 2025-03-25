@@ -54,6 +54,21 @@ export const AppwriteContextProvider = ({ children }) => {
       console.log("Error in fetching all documents", error);
     }
   };
+  const getDocumentsByQuery = async (category) => {
+    try {
+      const result = await databases.listDocuments(
+        import.meta.env.VITE_DATABASE_ID,
+        import.meta.env.VITE_COLLECTION_ID,
+        [
+          Query.equal("category", category)// Fetch only 10 documents
+        ]
+      );
+      console.log(result);
+      return result;
+    } catch (error) {
+      console.log("Error in fetching all documents", error);
+    }
+  };
 
   //  Get Document By ID
   const getDocumentById = async (docId) => {
@@ -156,9 +171,6 @@ export const AppwriteContextProvider = ({ children }) => {
     const encodedMessage = encodeURIComponent(message);
     window.open(`https://wa.me/${phone}?text=${encodedMessage}`, "_blank");
   };
-  
-  
-  
     const getCurrentLoggedInUser = async()=>{
           try {
               const result = await account.get();
@@ -167,7 +179,21 @@ export const AppwriteContextProvider = ({ children }) => {
               console.log(error)
           }
       }
-
+  const addReview= async(review,product)=>{
+    try {
+      const result = await databases.createDocument(
+        import.meta.env.VITE_DATABASE_ID,
+        import.meta.env.VITE_REVIEW_COLLECTION_ID,
+        ID.unique(),
+        review
+      );
+      let reviews = product.reviews.length>0?product.reviews:[];
+      reviews = [result.$id,...reviews]
+      return await updateDocument(product.$id,{reviews});
+    } catch (error) {
+      console.log("Error in adding document", error);
+    }
+  }
   return (
     <Appwrite.Provider
       value={{
@@ -183,7 +209,9 @@ export const AppwriteContextProvider = ({ children }) => {
         logout,
         loggedInUser,
         sendMessage,
-        getCurrentLoggedInUser
+        getDocumentsByQuery,
+        getCurrentLoggedInUser,
+        addReview
       }}
     >
       {children}

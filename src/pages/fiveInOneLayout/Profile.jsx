@@ -5,11 +5,13 @@ import Input from './Input';
 import ProfileForm from './ProfileForm';
 import { useFirebase } from '../../firebase/FirebaseContext';
 import toast,{Toaster} from 'react-hot-toast';
+import { useAppwrite } from '../../appwrite/AppwriteContext';
 const Profile = () => {
   const [userData, setUserData] = useState(null)
   const [loading, setLoading] = useState(true);
   const [isModelShow, setIsModelShow] = useState(false);
-  const {isLoggedIn,signout} = useFirebase()
+  // const {isLoggedIn,signout} = useFirebase()
+  const {loggedInUser,logout} = useAppwrite()
   const navigate = useNavigate()
   const getUserDetails = () => {
     const data = localStorage.getItem("user");
@@ -29,17 +31,16 @@ const Profile = () => {
   const handleSignOut=()=>{
    const res =  confirm('Confim wants to signout');
    if(res){
-    signout();
+    logout();
     toast.success("Successfully logout")
    }
-   else{
+   else{a
     toast.error("Logout cancel")
    }
   }
-  return (
-    <>
-      {
-        loading ? <>
+  if(loading){
+    return (
+      <>
           <div className='p-5 sm:p-20 w-full '>
             <div className='h-7 w-40 bg-slate-200 rounded-lg animate-pulse'></div>
             <div className='w-full  mt-10 '>
@@ -58,14 +59,20 @@ const Profile = () => {
             </div>
             <div className='h-12 w-32 mt-14 bg-slate-200 rounded-lg animate-pulse'></div>
           </div>
-        </> : <>
+        </>
+    )
+  }
+  return (
+    <>
+      {
+       loggedInUser?<>
           <div className="w-full sm:w-[85%] px-5 py-10 sm:p-14 h-auto">
           <div className='flex justify-between items-start w-full'>
           <div>
            <h1 className='text-2xl font-semibold'>My Profile</h1>
             <p className='text-slate-400 text-xs my-3'>You can edit/update your profile information by click on edit profile button.</p>
            </div>
-          { isLoggedIn?<button className='w-40 mt-5 p-1 border bg-slate-800  duration-500 border-slate-800 text-white flex justify-center items-center ' onClick={handleSignOut}> SignOut
+          { loggedInUser?<button className='w-40 mt-5 p-1 border bg-slate-800  duration-500 border-slate-800 text-white flex justify-center items-center ' onClick={handleSignOut}> SignOut
            </button>:<button className='w-40 mt-5 p-1 border bg-slate-800  duration-500 border-slate-800 text-white flex justify-center items-center mx-5 sm:mx-0' onClick={()=>navigate("/login")}>Login
            </button>}
           </div>
@@ -75,19 +82,19 @@ const Profile = () => {
                   <div className='flex flex-col sm:flex-row sm:gap-0 gap-5 mt-10 w-full justify-between items-center'>
                     <div className='relative w-full sm:w-1/2 text-start' >
                       <p className='text-xs text-slate-400 font-semibold'>FULL NAME</p>
-                      <h1 className="sm:text-xl text-lg">{userData?.fullName}</h1>
+                      <h1 className="sm:text-xl text-lg">{loggedInUser?.name}</h1>
 
                     </div>
                     <div className='relative w-full sm:w-1/2 text-start'>
                       <p className='text-xs text-slate-400 font-semibold'>Email</p>
-                      <h1 className="sm:text-xl text-lg">{userData?.email}</h1>
+                      <h1 className="sm:text-xl text-lg">{loggedInUser?.email}</h1>
 
                     </div>
                   </div>
                   <div className='flex flex-col sm:flex-row sm:gap-0 gap-5 mt-10 w-full justify-between items-center'>
                     <div className='relative  w-full sm:w-1/2 text-start' >
                       <p className='text-xs text-slate-400 font-semibold'>PHONE NUMBER</p>
-                      <h1 className="sm:text-xl text-lg">{userData?.phoneNumber}</h1>
+                      <h1 className="sm:text-xl text-lg">{loggedInUser?.phone}</h1>
                     </div>
                   
                   </div>
@@ -113,7 +120,11 @@ const Profile = () => {
                   getUserDetails={getUserDetails}
                 />
           </div>
-        </>
+        </>:<div className='h-[25rem] w-full flex flex-col justify-center items-center'>
+          <h1 className='text-xl text-zinc-700 font-semibold'>Please login first</h1>
+        <button className='w-40 mt-5 p-1 border bg-slate-800  duration-500 border-slate-800 text-white flex justify-center items-center mx-5 sm:mx-0' onClick={()=>navigate("/login")}>Login
+        </button>
+        </div>
       }
       <Toaster/>
     </>

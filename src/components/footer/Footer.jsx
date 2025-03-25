@@ -60,8 +60,8 @@ const Footer = () => {
 
               <div>
                 <h3 className="text-gray-700 uppercase">Contact</h3>
-                <span className="block mt-2 text-sm text-gray-600 hover:underline">6398647656</span>
-                <span className="block mt-2 text-sm text-gray-600 hover:underline">Akhan656500@gmail.com</span>
+                <span className="block mt-2 text-sm text-gray-600 hover:underline"><a href="tel:6398647656">6398647656</a></span>
+                <span className="block mt-2 text-sm text-gray-600 hover:underline"><a href="mailto:Akhan656500@gmail.com">Akhan656500@gmail.com</a></span>
               </div>
             </div>
           </div>

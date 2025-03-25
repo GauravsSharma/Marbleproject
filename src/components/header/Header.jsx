@@ -16,7 +16,7 @@ const Header = () => {
   const firebase = useFirebase()
   const location = useLocation()
   const [toggleSearch, setToggleSearch] = useState("top-0");
-  const closeMenu = () => {
+   const closeMenu = () => {
     setIsOpen(false);
   };
   console.log(appwrite.loggedInUser);
