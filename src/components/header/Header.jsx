@@ -5,54 +5,32 @@ import { FaRegHeart } from "react-icons/fa";
 import { NavLink, Link, useNavigate, useLocation } from 'react-router-dom';
 import { useFirebase } from '../../firebase/FirebaseContext';
 import { IoSearch } from "react-icons/io5";
+import { useAppwrite } from '../../appwrite/AppwriteContext';
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const [query, setQuery] = useState(null);
   const [searchOption, setSearchOption] = useState([])
   const navigate = useNavigate();
+  const appwrite = useAppwrite()
   const firebase = useFirebase()
   const location = useLocation()
   const [toggleSearch, setToggleSearch] = useState("top-0");
-
-  const [toggleMenuOnMount, setToggleMenuOnMount] = useState(false);
   const closeMenu = () => {
     setIsOpen(false);
-
   };
+  console.log(appwrite.loggedInUser);
+  
   const toggleMenu = () => {
     setIsOpen(!isOpen);
 
   };
-  const searchQuery = (event) => {
-    if (event.key === "Enter" && query.length > 0) {
-      // console.log(newArr.join(""));
-      const searchString = encodeURIComponent(query);
-      navigate(`/shopping/${searchString}`);
-      setQuery("");
-      setToggleSearch("top-0")
-      setSearchOption([])
-    }
-  }
-  let url = firebase.user?.photoURL != null ? firebase.user?.photoURL : "https://img.freepik.com/free-psd/3d-illustration-human-avatar-profile_23-2150671116.jpg?w=740&t=st=1703837364~exp=1703837964~hmac=33dcc8385818924229394fd67ba929edb782c5eb07ec9f261dfa935f2ae88d53";
-  console.log(url);
+  let url = firebase?.user?.photoURL!=null?firebase?.user?.photoURL:"https://img.freepik.com/free-psd/3d-illustration-human-avatar-profile_23-2150671116.jpg?w=740&t=st=1703837364~exp=1703837964~hmac=33dcc8385818924229394fd67ba929edb782c5eb07ec9f261dfa935f2ae88d53";
   useEffect(() => {
     closeMenu()
     window.scrollTo(0, 0);
   }, [location])
-  const handleChange = (e) => {
-    const getVal = e.target.value;
-    if (getVal.length === 0) {
-      setSearchOption([])
-      setQuery(e.target.value);
-      return;
-    }
-    setQuery(getVal);
-    const filterOptions = searchArray.filter((option) => {
-      return option.includes(getVal.toLowerCase());
-    })
-    setSearchOption(filterOptions);
-  }
+
   const toggleSearchMenu = () => {
     if (toggleSearch === "top-0") {
       setToggleSearch("top-full")
@@ -153,7 +131,7 @@ const Header = () => {
                     >
                       Contact Us
                     </Link>
-                    {!firebase?.isLoggedIn ? (
+                    {!appwrite?.loggedInUser ? (
                       <>
                         <Link
                           to="/login"

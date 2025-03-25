@@ -4,19 +4,22 @@ import toast, { Toaster } from 'react-hot-toast';
 import * as Yup from 'yup'
 import { useFirebase } from '../../firebase/FirebaseContext'
 import {Link, useNavigate} from 'react-router-dom'
+import { useAppwrite } from '../../appwrite/AppwriteContext';
 const signUpScehma = Yup.object({
     name:Yup.string().min(2).max(30).required("Please enter your name"),
     email:Yup.string().email().required("*Please enter your email"),
     password: Yup.string().min(6).required("*Please enter your password"),
+    number:Yup.string().min(10).max(10).required("Please provide a phone number")
 })
 const initialValues = {
     name:"",
     email:"",
     password:"",
+    number:""
 }
 const Register = ({setFoot,setNav}) => {
     const navigate = useNavigate();
-    const firebase = useFirebase()
+    const appwrite = useAppwrite()
     useEffect(()=>{
         setFoot(false);
         setNav(false);
@@ -25,28 +28,21 @@ const Register = ({setFoot,setNav}) => {
         initialValues,
         validationSchema:signUpScehma,
         onSubmit: (values, action) => {
-          const myPromise=firebase.signUp(values.email,values.password)
+          const myPromise=appwrite.signup(values.email,values.password,values.name,"+91"+values.number)
           toast.promise(myPromise, {
             loading: 'Loading',success: 'signin success, redirecting',error: 'Email already exist. Please login',
           });
           action.resetForm();
         }
-      })
-
-      const handleSignInWithGoogle = async () => {
-          await firebase.signInWithGoogle();
-          toast.success("Success");
-      };
-    
-    
-      useEffect(()=>{
-        if(firebase.isLoggedIn){
-           setTimeout(() => {
-            navigate('/');
-           }, 2000);
-          }
-        //   firebase.addDataToFirestore(jsonData).then((res)=>console.log(res)).catch((err)=>console.log(err));
-      },[firebase.isLoggedIn])
+      })    
+     
+     useEffect(()=>{
+       if(appwrite.loggedInUser){
+           navigate("/")
+       }
+           setFoot(false);
+           setNav(false);
+       },[appwrite.loggedInUser])
   return (
     <div className="flex flex-wrap min-h-screen w-full content-center justify-center bg-gray-100 p-5 sm:py-10">
 
@@ -82,6 +78,15 @@ const Register = ({setFoot,setNav}) => {
                     </div>
 
                     <div className="mb-3">
+                        <label className="mb-2 block text-xs font-semibold">Phone Number</label>
+                        <input type="text" placeholder="eg:939492392" className="block w-full rounded-md border border-gray-300 focus:border-slate-700 focus:outline-none focus:ring-1 focus:ring-slate-700 py-1 px-1.5 text-gray-500" 
+                        name='number'
+                         value={values.number}
+                         onChange={handleChange}
+                         onBlur={handleBlur}/>
+                         {errors.number && touched.number ? <p className='text-red-500 text-sm m-0.5'>{errors.number}</p> : null}
+                    </div>
+                    <div className="mb-3">
                         <label className="mb-2 block text-xs font-semibold">Password</label>
                         <input type="password" placeholder="*****" className="block w-full rounded-md border border-gray-300 focus:border-slate-700 focus:outline-none focus:ring-1 focus:ring-slate-700 py-1 px-1.5 text-gray-500" 
                         name='password'
@@ -100,10 +105,6 @@ const Register = ({setFoot,setNav}) => {
                         <button type='submit' className="mb-1.5 block w-full text-center text-white bg-slate-700 hover:bg-slate-900 px-2 py-1.5 rounded-md">Sign in</button>
                     </div>
                 </form>
-                <button className="flex flex-wrap justify-center w-full border border-gray-300 hover:border-gray-500 px-2 py-1.5 rounded-md" onClick={handleSignInWithGoogle}>
-                            <img className="w-5 mr-2" src="https://lh3.googleusercontent.com/COxitqgJr1sJnIDe8-jiKhxDx1FrYbtRHKJ9z_hELisAlapwE9LUPh6fcXIfb5vwpbMl4xl9H9TRFPc5NOO8Sb3VSgIBrfRYvW6cUA" alt="Google Icon" />
-                            Sign in with Google
-                        </button>
                 {/* Footer */}
                 <div className="text-center">
                     <span className="text-xs text-gray-400 font-semibold">Don't have account?</span>

@@ -20,10 +20,14 @@ import AdForm from './pages/fiveInOneLayout/AdForm'
 import Login from './pages/login/Login'
 import Register from './pages/register/Register'
 import Checking from "./Checking"
+import { useAppwrite } from './appwrite/AppwriteContext'
 const App = () => {
   const [isNav,setNav] = useState(true);
   const [isFoot,setFoot] = useState(true);
- 
+  const {getCurrentLoggedInUser} = useAppwrite()
+ useEffect(()=>{
+  getCurrentLoggedInUser()
+ },[])
   return (
     <>
       {isNav&&<Header/>}
