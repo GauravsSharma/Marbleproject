@@ -41,7 +41,7 @@ const About = ({setNav,setFoot}) => {
       </div>
    </section>
    <section id="about-app" className="p-5 sm:p-10  text-center ">
-     <h1 className='text-[2rem] font-bold sm:text-[3rem]'>Download Our <a href="" className='text-blue-800 decoration-slate-800'>App</a></h1>
+     <h1 className='text-[2rem] font-bold sm:text-[3rem]'>That's Our <a href="" className='text-blue-800 decoration-slate-800'>work</a></h1>
      <div className="video w-full sm:w-[70%] h-full mt-[30px] mx-auto">
      <video autoPlay muted loop src="" className='w-full h-full rounded-2xl'></video>
 
