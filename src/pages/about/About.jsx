@@ -41,10 +41,12 @@ const About = ({setNav,setFoot}) => {
       </div>
    </section>
    <section id="about-app" className="p-5 sm:p-10  text-center ">
-     <h1 className='text-[2rem] font-bold sm:text-[3rem]'>That's Our <a href="" className='text-blue-800 decoration-slate-800'>work</a></h1>
-     <div className="video w-full sm:w-[70%] h-full mt-[30px] mx-auto">
-     <video autoPlay muted loop src="" className='w-full h-full rounded-2xl'></video>
-
+     <h1 className='text-[2rem] font-semibold sm:text-[3rem]'>Our <span className='text-blue-800'>Certification</span></h1>
+     <div className=" w-full h-full mt-10 mx-auto flex md:flex-row flex-col gap-2 md:gap-1 justify-center items-center">
+         <div className='md:w-1/2 w-full text-lg text-left p-2'>
+         This certificate is awarded to <span className='text-blue-800 font-semibold'></span> for successfully completing the <span className='text-blue-800 font-semibold'>Stone Inlay Art Training</span> under the <span className='text-blue-800 font-semibold'>Guru Shishya Handicraft Training Program (2024-25)</span>, organized by the <span className='text-blue-800 font-semibold'>Ministry of Textiles, Govt. of India</span>. Conducted in Agra, this program enhances traditional craftsmanship, equipping artisans with expert skills in intricate stone inlay techniques.
+         </div>
+         <img className='w-full md:w-1/2 object-contain h-96' src="/certificate.jpg" alt="" />
      </div>
     </section>
    </>

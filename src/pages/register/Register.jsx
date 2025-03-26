@@ -30,8 +30,10 @@ const Register = ({setFoot,setNav}) => {
         onSubmit: (values, action) => {
           const myPromise=appwrite.signup(values.email,values.password,values.name,"+91"+values.number)
           toast.promise(myPromise, {
-            loading: 'Loading',success: 'signin success, redirecting',error: 'Email already exist. Please login',
-          });
+            loading: "Signing in...",
+            success: "Signin successful! Redirecting...",
+            error: (error) => error.message || "Something went wrong",
+        });
           action.resetForm();
         }
       })    

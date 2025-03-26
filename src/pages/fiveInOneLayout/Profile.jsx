@@ -28,16 +28,22 @@ const Profile = () => {
   useEffect(() => {
     getUserDetails()
   }, [])
-  const handleSignOut=()=>{
-   const res =  confirm('Confim wants to signout');
-   if(res){
-    logout();
-    toast.success("Successfully logout")
-   }
-   else{a
-    toast.error("Logout cancel")
-   }
-  }
+  const handleSignOut = () => {
+    const res = confirm("Confirm logout?");
+    if (!res) {
+        toast.error("Logout canceled");
+        return;
+    }
+
+    const logoutPromise = logout();
+
+    toast.promise(logoutPromise, {
+        loading: "Logging out...",
+        success: "Successfully logged out!",
+        error: (error) => error.message || "Logout failed",
+    });
+};
+
   if(loading){
     return (
       <>

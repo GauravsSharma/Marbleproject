@@ -111,14 +111,7 @@ const Header = () => {
                     >
                       Home
                     </Link>
-                    <Link
-                      to="/add"
-                      className="my-2 text-base leading-5 text-gray-700 transition-colors duration-300 transform hover:text-blue-600 hover:underline md:mx-4 md:my-1"
-
-                    >
-                      Add
-                    </Link>
-
+            
                     <Link
                       to="/about"
                       className="my-2 text-base leading-5 text-gray-700 transition-colors duration-300 transform hover:text-blue-600 hover:underline md:mx-4 md:my-1"
@@ -133,7 +126,7 @@ const Header = () => {
                     </Link>
                     <Link
                       to="/fiveinone/profile"
-                      className="my-2 text-base leading-5 text-gray-700 transition-colors duration-300 transform hover:text-blue-600 hover:underline md:mx-4 md:my-1"
+                      className="my-2 md:hidden text-base leading-5 text-gray-700 transition-colors duration-300 transform hover:text-blue-600 hover:underline md:mx-4 md:my-1"
                     >
                       Profile
                     </Link>

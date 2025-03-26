@@ -22,12 +22,13 @@ const Login = ({setFoot,setNav}) => {
         initialValues,
         validationSchema: loginSchema,
         onSubmit: async(values, action) => {
-            try {
-                const res = await appwrite.login(values.email,values.password)
-                toast.success("Login successful");
-            } catch (error) {
-                toast.error("Something went wrong")
-            }
+        
+                const myPromise = appwrite.login(values.email,values.password)
+                toast.promise(myPromise, {
+                    loading: "Logging in...",
+                    success: "Login successful! Redirecting...",
+                    error: (error) => error.message || "Something went wrong",
+                });
             action.resetForm();
         },
     });

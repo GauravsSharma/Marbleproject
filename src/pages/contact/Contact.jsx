@@ -48,11 +48,11 @@ const Contact = ({ setFoot, setNav }) => {
                                     </li>
                                     <li className="flex items-center text-gray-600">
                                         <MdEmail className="text-lg" />
-                                        <p className="ml-3 text-base">akhan656500@gmail.com</p>
+                                        <p className="ml-3 text-base"><a href="mailto:Akhan656500@gmail.com">Akhan656500@gmail.com</a></p>
                                     </li>
                                     <li className="flex items-center text-gray-600">
                                         <FaPhoneAlt className="text-lg" />
-                                        <p className="ml-3 text-base">6398647656</p>
+                                        <p className="ml-3 text-base"><a href="tel:6398647656">6398647656</a></p>
                                     </li>
                                     <li className="flex items-center text-gray-600">
                                         <FaClock className="text-lg" />

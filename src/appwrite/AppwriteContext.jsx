@@ -131,8 +131,12 @@ export const AppwriteContextProvider = ({ children }) => {
 
 
   const login = async (email, password) => {
+   try {
     await account.createEmailPasswordSession(email, password);
     setLoggedInUser(await account.get());
+   } catch (error) {
+     throw new Error(error.message)
+   }
   };
   const signup = async (email, password, name, phone) => {
     try {
@@ -155,11 +159,16 @@ export const AppwriteContextProvider = ({ children }) => {
   };
 
   const logout = async () => {
-    await account.deleteSession("current");
-    setLoggedInUser(null);
+   try {
+    const res = await account.deleteSession('current');
+    setLoggedInUser(null)
+    return res
+   } catch (error) {
+    throw new Error(error.message)
+   }
   };
    
-  const sendMessage = (name, images, total_price, phone = "+917351586553") => {
+  const sendMessage = (name, images, total_price, phone = "+917417124246") => {
     // Formatting images with their respective prices
     const imageDetails = images.length > 0
       ? images.map((img, index) => `${index + 1}. ${img.thumbnail} \n   Price: ₹${img.price}`).join("\n\n")
