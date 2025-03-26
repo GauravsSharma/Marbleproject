@@ -168,7 +168,7 @@ export const AppwriteContextProvider = ({ children }) => {
    }
   };
    
-  const sendMessage = (name, images, total_price, phone = "+917417124246") => {
+  const sendMessage = (name, images, total_price, phone = "+917351586553") => {
     // Formatting images with their respective prices
     const imageDetails = images.length > 0
       ? images.map((img, index) => `${index + 1}. ${img.thumbnail} \n   Price: ₹${img.price}`).join("\n\n")
