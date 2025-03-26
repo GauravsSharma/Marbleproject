@@ -169,37 +169,37 @@ const Header = () => {
               </div>
               <div className="pt-4 my-2 border-t sm:gap-1 gap-2 overflow-x-auto flex justify-center items-center">
                 <Link
-                  className="sm:mx-2 ml-1 text-nowrap text-sm leading-5 text-gray-700 transition-colors duration-300 transform hover:text-blue-600 dark:hover:text-blue-400 hover:underline"
+                  className="sm:mx-2 ml-1 no-underline text-nowrap text-sm leading-5 text-gray-700 transition-colors duration-300 transform hover:text-blue-600 dark:hover:text-blue-400 hover:underline"
                   to="/shopping/floor"
                 >
                   Floor
                 </Link>
                 <Link
-                  className="sm:mx-2 ml-1 text-nowrap text-sm leading-5 text-gray-700 transition-colors duration-300 transform hover:text-blue-600 dark:hover:text-blue-400 hover:underline"
+                  className="sm:mx-2 ml-1 no-underline text-nowrap text-sm leading-5 text-gray-700 transition-colors duration-300 transform hover:text-blue-600 dark:hover:text-blue-400 hover:underline"
                   to="/shopping/wall"
                 >
                   Wall
                 </Link>
                 <Link
-                  className="sm:mx-2 ml-1 text-nowrap text-sm leading-5 text-gray-700 transition-colors duration-300 transform hover:text-blue-600 dark:hover:text-blue-400 hover:underline"
+                  className="sm:mx-2 ml-1 no-underline text-nowrap text-sm leading-5 text-gray-700 transition-colors duration-300 transform hover:text-blue-600 dark:hover:text-blue-400 hover:underline"
                   to="/shopping/stair"
                 >
                   Stairs
                 </Link>
                 <Link
-                  className="sm:mx-2 ml-1 text-nowrap text-sm leading-5 text-gray-700 transition-colors duration-300 transform hover:text-blue-600 dark:hover:text-blue-400 hover:underline"
+                  className="sm:mx-2 ml-1 no-underline text-nowrap text-sm leading-5 text-gray-700 transition-colors duration-300 transform hover:text-blue-600 dark:hover:text-blue-400 hover:underline"
                   to="/shopping/marble"
                 >
                   Marbles
                 </Link>
                 <Link
-                  className="sm:mx-2 ml-1 text-nowrap text-sm leading-5 text-gray-700 transition-colors duration-300 transform hover:text-blue-600 dark:hover:text-blue-400 hover:underline"
+                  className="sm:mx-2 ml-1 no-underline text-nowrap text-sm leading-5 text-gray-700 transition-colors duration-300 transform hover:text-blue-600 dark:hover:text-blue-400 hover:underline"
                   to="/shopping/temple"
                 >
                   Temples
                 </Link>
                 <Link
-                  className="sm:mx-2 ml-1 text-nowrap text-sm leading-5 text-gray-700 transition-colors duration-300 transform hover:text-blue-600 dark:hover:text-blue-400 hover:underline"
+                  className="sm:mx-2 ml-1 no-underline text-nowrap text-sm leading-5 text-gray-700 transition-colors duration-300 transform hover:text-blue-600 dark:hover:text-blue-400 hover:underline"
                   to="/shopping/table"
                 >
                   Tables
