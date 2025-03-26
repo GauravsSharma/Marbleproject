@@ -32,8 +32,8 @@ const Carousel = () => {
        
     ]
     const mobileImages = [
-        {url: "https://i0.wp.com/pandeymoorti.com/wp-content/uploads/2023/08/marble-matki-handicraft-3-1.jpg?fit=800%2C800&ssl=1"},
-        {url: "https://i.redd.it/marble-handicrafts-of-jaipur-v0-r0fdutzos96c1.jpg?width=1224&format=pjpg&auto=webp&s=ecee8b865965a7ac9d8288fad33b1ef28cbd6848"}
+        {url: "/mobile1.png"},
+        {url: "/mobile2.png"}
      ]
      const images = isMobile ? mobileImages : slides;
     const [currentIdx, setCurrIdx] = useState(0);
@@ -60,7 +60,7 @@ const Carousel = () => {
     return (
         <>
             <div className='max-w-[1400px] h-[500px] w-full relative top-0 group'>
-                <div style={{ backgroundImage: `url(${images?.[currentIdx]?.url})`, width: "100%", height: "100%", transition: "1000ms", backgroundRepeat: "no-repeat",backgroundSize:"cover",backgroundPosition:"center"}} className='duration-100 relative top-0'>
+                <div style={{ backgroundImage: `url(${images?.[currentIdx]?.url})`, width: "100%", height: "90%", transition: "1000ms", backgroundRepeat: "no-repeat",backgroundSize:"cover",backgroundPosition:"center"}} className='duration-100 relative top-0'>
                 </div>
                 <div className='hidden group-hover:block absolute top-[45%] -translate-x-0 -translate-y-[-50%] left-5 text-2xl  rounded-full p-2 bg-black/20 text-white cursor-pointer'>
                     <BsChevronCompactLeft onClick={setPrev} size={30} />
