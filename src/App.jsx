@@ -21,6 +21,7 @@ import Login from './pages/login/Login'
 import Register from './pages/register/Register'
 import Checking from "./Checking"
 import { useAppwrite } from './appwrite/AppwriteContext'
+import ProductForm from './pages/login/Addproduct'
 const App = () => {
   const [isNav,setNav] = useState(true);
   const [isFoot,setFoot] = useState(true);
@@ -36,6 +37,7 @@ const App = () => {
         <Route path='/item-details/:id' element={<ItemDetail setNav={setNav} setFoot={setFoot}/>}/>
         {/* <Route path='/blog' element={<Blog setNav={setNav} setFoot={setFoot}/>}/> */}
         <Route path='/about' element={<About setNav={setNav} setFoot={setFoot}/>}/>
+        <Route path='/add' element={<ProductForm setNav={setNav} setFoot={setFoot}/>}/>
         <Route path='/contact' element={<Contact setNav={setNav} setFoot={setFoot}/>}/>
         <Route path='/shopping/:category' element={<Shopping setNav={setNav} setFoot={setFoot}/>}/>
         <Route path='/checkout/cart' element={<CartPage setNav={setNav} setFoot={setFoot}/>}/>

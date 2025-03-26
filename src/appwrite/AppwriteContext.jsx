@@ -37,7 +37,21 @@ export const AppwriteContextProvider = ({ children }) => {
       console.log("Error in getting file download URL", error);
     }
   };
-
+  //create document
+  const createDocument = async (data) => {
+    try {
+      const result = await databases.createDocument(
+        import.meta.env.VITE_DATABASE_ID,
+        import.meta.env.VITE_COLLECTION_ID,
+        ID.unique(),
+        data
+      );
+      console.log("Document added:", result);
+      return result;
+    } catch (error) {
+      console.log("Error in adding document", error);
+    }
+  };
   // Get All Documents
   const getAllDocuments = async () => {
     try {
@@ -115,20 +129,7 @@ export const AppwriteContextProvider = ({ children }) => {
     }
   };
 
-  const createDocument = async (data) => {
-    try {
-      const result = await databases.createDocument(
-        import.meta.env.VITE_DATABASE_ID,
-        import.meta.env.VITE_COLLECTION_ID,
-        ID.unique(),
-        data
-      );
-      console.log("Document added:", result);
-      return result;
-    } catch (error) {
-      console.log("Error in adding document", error);
-    }
-  };
+
   const login = async (email, password) => {
     await account.createEmailPasswordSession(email, password);
     setLoggedInUser(await account.get());
