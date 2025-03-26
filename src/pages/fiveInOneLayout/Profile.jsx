@@ -77,7 +77,7 @@ const Profile = () => {
            </button>}
           </div>
             {
-              userData ? <div className='w-full sm:w-[70%] sm:my-5'>
+              loggedInUser ? <div className='w-full sm:w-[70%] sm:my-5'>
                 <div>
                   <div className='flex flex-col sm:flex-row sm:gap-0 gap-5 mt-10 w-full justify-between items-center'>
                     <div className='relative w-full sm:w-1/2 text-start' >
