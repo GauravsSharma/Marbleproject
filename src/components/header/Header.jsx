@@ -40,13 +40,6 @@ const Header = () => {
       setSearchOption([])
     }
   }
-  const handleSearch = (option) => {
-    const searchString = encodeURIComponent(option);
-    navigate(`/shopping/${searchString}`);
-    setQuery("");
-    setSearchOption([]);
-    toggleSearchMenu();
-  }
   return (
     <>
       {
@@ -81,7 +74,7 @@ const Header = () => {
 
                   <div className="flex lg:hidden">
                     <div className="flex sm:ml-6 gap-3 sm:flex justify-center items-center">
-                      <IoSearch className='text-[27px] cursor-pointer' onClick={toggleSearchMenu} />
+                      {/* <IoSearch className='text-[27px] cursor-pointer' onClick={toggleSearchMenu} /> */}
                       <div className='relative'>
                         <Link to="/fiveinone/wishlist"  ><FaRegHeart className='text-2xl cursor-pointer' /></Link>
                         <div className=' p-[6px] h-2 w-2 rounded-full bg-red-500 border-white absolute top-0 -right-1 flex justify-center items-center text-[10px] text-white'>{firebase.lengthOfWishlist}</div>
@@ -130,6 +123,12 @@ const Header = () => {
                       className="my-2 text-base leading-5 text-gray-700 transition-colors duration-300 transform hover:text-blue-600 hover:underline md:mx-4 md:my-1"
                     >
                       Contact Us
+                    </Link>
+                    <Link
+                      to="/fiveinone/profile"
+                      className="my-2 text-base leading-5 text-gray-700 transition-colors duration-300 transform hover:text-blue-600 hover:underline md:mx-4 md:my-1"
+                    >
+                      Profile
                     </Link>
                     {!appwrite?.loggedInUser ? (
                       <>

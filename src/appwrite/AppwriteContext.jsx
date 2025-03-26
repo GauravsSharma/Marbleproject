@@ -158,7 +158,7 @@ export const AppwriteContextProvider = ({ children }) => {
     setLoggedInUser(null);
   };
    
-  const sendMessage = (name, images, total_price, phone = "+916398647656") => {
+  const sendMessage = (name, images, total_price, phone = "+917351586553") => {
     // Formatting images with their respective prices
     const imageDetails = images.length > 0
       ? images.map((img, index) => `${index + 1}. ${img.thumbnail} \n   Price: ₹${img.price}`).join("\n\n")
@@ -169,7 +169,7 @@ export const AppwriteContextProvider = ({ children }) => {
   
     // Encoding and opening WhatsApp link
     const encodedMessage = encodeURIComponent(message);
-    window.open(`sms:+916398647656?body=${encodedMessage}`);
+    window.open(`sms:${phone}?body=${encodedMessage}`);
 
   };
     const getCurrentLoggedInUser = async()=>{

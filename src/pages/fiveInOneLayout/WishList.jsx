@@ -88,7 +88,7 @@ const WishList = () => {
         </div>:<>
           <div className='py-10 sm:px-10 sm:py-14 w-full sm:w-[85%]'>
             <h1 className='text-xl sm:text-2xl font-semibold mb-5 px-6'>Your WishList</h1>
-            <div className='flex flex-wrap gap-5'>
+            <div className='flex flex-wrap sm:gap-5'>
                {
                 wishlist?.length>0?<>
                  {
