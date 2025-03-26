@@ -18,8 +18,8 @@ const CardSection = ({data,heading,subHead}) => {
           }
         </div> 
         <div className='flex justify-center items-center mt-5'>
-        <button className='py-[6px] px-12 text-base font-bold bg-slate-800 text-white hover:shadow-lg  hover:bg-slate-900 duration-500 mt-5
-        ' onClick={()=>navigate(`/shopping/${data[0].data().category}`)}>VIEW ALL PRODUCT</button>
+        <button className='py-[6px] px-12 text-base font-semibold bg-slate-800 text-white hover:shadow-lg  hover:bg-slate-900 duration-500 mt-5
+        ' onClick={()=>navigate(`/shopping/${data[0]?.category||"floor"}`)}>VIEW ALL PRODUCT</button>
         </div>
     </div>
   )
