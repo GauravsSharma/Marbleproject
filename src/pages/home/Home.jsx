@@ -113,7 +113,7 @@ const Home = ({ setFoot, setNav }) => {
     </div>
   </Link>
 
-  <Link to="/shopping/marbles">
+  <Link to="/shopping/marble">
     <div className="rounded-xl overflow-hidden bg-white w-full h-[250px] sm:h-[300px] hover:scale-105 hover:shadow-2xl transition-transform duration-500 shadow-lg">
       <img
         src="https://media-cdn.tripadvisor.com/media/photo-s/1c/b6/91/eb/marble-handicrafts-in.jpg"

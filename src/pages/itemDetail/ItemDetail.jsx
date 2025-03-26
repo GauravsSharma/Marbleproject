@@ -113,7 +113,7 @@ const ItemDetail = ({ setNav, setFoot }) => {
                                
                                 <h4 className="sm:text-3xl text-2xl my-1">{obj?.title}</h4>
                                 <div className='flex justify-start items-center'>
-                                    <h2 className="text-2xl my-1 font-semibold">₹{obj?.price}</h2>
+                                    <h2 className="text-2xl my-1 font-semibold">₹{obj?.price}/sqr-foot</h2>
                 
                                 </div>
                                 <p className='text-slate-400 font-bold'>Free size</p>
