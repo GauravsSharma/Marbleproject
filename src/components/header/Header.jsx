@@ -111,6 +111,13 @@ const Header = () => {
                     >
                       Home
                     </Link>
+                    <Link
+                      to="/add"
+                      className="my-2 text-base leading-5 text-gray-700 transition-colors duration-300 transform hover:text-blue-600 hover:underline md:mx-4 md:my-1"
+
+                    >
+                      Add
+                    </Link>
 
                     <Link
                       to="/about"
