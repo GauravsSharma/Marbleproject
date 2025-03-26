@@ -169,7 +169,8 @@ export const AppwriteContextProvider = ({ children }) => {
   
     // Encoding and opening WhatsApp link
     const encodedMessage = encodeURIComponent(message);
-    window.open(`https://wa.me/${phone}?text=${encodedMessage}`, "_blank");
+    window.open(`sms:+916398647656?body=${encodedMessage}`);
+
   };
     const getCurrentLoggedInUser = async()=>{
           try {
