@@ -39,7 +39,7 @@ const CheckoutSidebar = ({ calculateOriginalPrice, calculateSubTotal, setISCheck
           <h2 className='font-bold text-xs sm:text-xl text-left text-slate-500 sm:capitalize uppercase'>Total amount</h2>
           <h2 className='font-bold text-left sm:text-xl text-2xl'>₹{calculateOriginalPrice()}.00</h2>
         </div>
-        <div className='flex justify-center w-1/2 sm:w-fullc items-center px-2 sm:px-0'>
+        <div className='flex justify-center w-1/2 sm:w-full items-center px-2 sm:px-0'>
 
         {
           !isCheckoutShow && <div className="btn flex justify-center items-center gap-1 px-3 py-4 w-full text-center cursor-pointer bg-slate-700 text-white font-semibold my-3 rounded-lg" onClick={handleCheckout}>
