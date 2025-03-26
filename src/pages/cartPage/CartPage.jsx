@@ -129,7 +129,7 @@ useEffect(()=>{
       <>
         <div className="sm:h-[80vh] h-auto w-full flex justify-start sm:justify-center items-center flex-col">
           <img
-            src="../../../public/emptyCart.jpg"
+            src="/emptyCart.jpg"
             alt=""
             className="object-fit h-96 w-96"
           />

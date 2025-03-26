@@ -64,7 +64,7 @@ const ProductCard = ({ thumbnail, title, price, price2 = 999, id, width = "1/5",
            </div>
            <div className="text-black p-1 tracking-tighter sm:font-bold mt-2 sm:text-sm">{truncateText(title, 3)}</div>
            <div className="flex justify-between p-1 items-center">
-              <p className="font-bold my-1">₹{price}</p>
+              <p className="font-bold my-1">₹{price}<span>/sqr-foot</span> </p>
               <div className="flex justify-center items-center"></div>
            </div>
            {isWish ? (
