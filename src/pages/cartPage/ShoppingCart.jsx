@@ -98,7 +98,6 @@ const ShoppingCart = ({
           </div>
         )}
       </div>
-      <Toaster />
     </div>
   );
 };

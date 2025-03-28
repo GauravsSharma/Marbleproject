@@ -132,7 +132,6 @@ const Profile = () => {
         </button>
         </div>
       }
-      <Toaster/>
     </>
   );
 };

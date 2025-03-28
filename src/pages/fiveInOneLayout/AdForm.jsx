@@ -158,7 +158,6 @@ const AdForm = ({ isAddShow, setIsAddShow, address = "", zipCode = "", country =
           </div>
         </Dialog>
       </Transition>
-      <Toaster />
     </>
   );
 };

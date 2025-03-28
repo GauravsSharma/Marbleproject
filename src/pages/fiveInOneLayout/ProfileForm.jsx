@@ -148,7 +148,6 @@ const ProfileForm = ({ isModelShow, setIsModelShow, fullName = "", email = "", p
                     </div>
                 </Dialog>
             </Transition>
-            <Toaster />
         </>
     );
 };

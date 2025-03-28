@@ -230,7 +230,6 @@ function getFormattedDate() {
           </div>
         </Dialog>
       </Transition>
-      <Toaster/>
     </>
   );
 };

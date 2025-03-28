@@ -90,7 +90,6 @@ const ProductCard = ({ thumbnail, title, price, price2 = 999, id, width = "1/5",
                  View Details
               </button>
            )}
-           <Toaster />
         </div>
      </>
   );

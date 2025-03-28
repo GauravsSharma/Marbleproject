@@ -142,7 +142,7 @@ const ItemDetail = ({ setNav, setFoot }) => {
                         </section>
                         <ProductReviewMemoized product={obj} fetchData={fetchData}/>
                         <CardSection data={data} heading={"Similar Products"} subHead={"You may also like"} />
-                        <Toaster />
+                        
                     </div>
                     {productCarouselShow&&<ProductCarousel images={[imgArr]} setProductCarouselShow={setProductCarouselShow} productCarouselShow={productCarouselShow} />}
                 </>

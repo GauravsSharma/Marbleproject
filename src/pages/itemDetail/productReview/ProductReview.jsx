@@ -122,7 +122,6 @@ const {loggedInUser} = useAppwrite()
             <div className='cursor-pointer py-4 text-white px-2 bg-red-600 rounded-md w-full sm:w-[70%] text-xs font-bold hover:shadow-xl hover:shadow-red-100 duration-500 text-center' onClick={toggleModel}>WRITE A PRODUCT REVIEW</div>
           </div>
           <GetReviewsModel isOpen={isOpen} toggleModel={toggleModel} product={product} fetchData={fetchData} />
-          <Toaster />
         </div>
       }
     </>

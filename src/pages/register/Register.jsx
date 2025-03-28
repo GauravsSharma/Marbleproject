@@ -119,7 +119,6 @@ const Register = ({setFoot,setNav}) => {
         <div className="hidden sm:flex bg-white flex-wrap content-center justify-center rounded-r-md" style={{ width: '24rem', height: '32rem' }}>
             <img className="w-full h-[80%] bg-center bg-no-repeat bg-cover rounded-r-md" src="https://img.freepik.com/free-vector/access-control-system-abstract-concept-vector-illustration-security-system-authorize-entry-login-credentials-electronic-access-password-passphrase-pin-verification-abstract-metaphor_335657-5746.jpg?w=740&t=st=1701424258~exp=1701424858~hmac=b66b75a3bff83174c95f51576dce7a45c1ebe32152a3954777191c76fe39a33f" alt="Login Banner" />
         </div>
-        <Toaster />
     </div>
 </div>
   )
