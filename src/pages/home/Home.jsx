@@ -91,7 +91,7 @@ const Home = ({ setFoot, setNav }) => {
     </div>
   </Link>
 
-  <Link to="/shopping/stairs">
+  <Link to="/shopping/stair">
     <div className="rounded-xl overflow-hidden bg-white w-full h-[250px] sm:h-[300px] hover:scale-105 hover:shadow-2xl transition-transform duration-500 shadow-lg">
       <img
         src="https://5.imimg.com/data5/SELLER/Default/2024/3/397669384/EH/IJ/NW/22937853/marble-staircase-design.jpg"
