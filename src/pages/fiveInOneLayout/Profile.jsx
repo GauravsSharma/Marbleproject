@@ -100,7 +100,7 @@ const Profile = () => {
                   <div className='flex flex-col sm:flex-row sm:gap-0 gap-5 mt-10 w-full justify-between items-center'>
                     <div className='relative  w-full sm:w-1/2 text-start' >
                       <p className='text-xs text-slate-400 font-semibold'>PHONE NUMBER</p>
-                      <h1 className="sm:text-xl text-lg">{loggedInUser?.phone}</h1>
+                      <h1 className="sm:text-xl text-lg">{loggedInUser?.phone || "not provided"}</h1>
                     </div>
                   
                   </div>
